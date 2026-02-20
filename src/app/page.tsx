@@ -13,34 +13,56 @@ interface CardDesign {
   category: string;
   templateImage: string;
   price: number;
+  popularity?: number;
 }
 
 export default function HomePage() {
   const [featuredCards, setFeaturedCards] = useState<CardDesign[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [categories, setCategories] = useState<{name: string, count: number}[]>([]);
   const { data: session } = useSession();
 
-  const fetchFeaturedCards = async () => {
+  const fetchData = async () => {
     try {
-      const response = await fetch('/api/cards?limit=6');
+      // Fetch cards from API
+      const response = await fetch('/api/cards');
       if (response.ok) {
         const data = await response.json();
         setFeaturedCards(data.slice(0, 6));
+        
+        // Calculate category counts from real data
+        const categoryMap = new Map<string, number>();
+        data.forEach((card: CardDesign) => {
+          const cat = card.category || 'other';
+          categoryMap.set(cat, (categoryMap.get(cat) || 0) + 1);
+        });
+        
+        const categoryList = [
+          { name: 'Traditional', count: categoryMap.get('traditional') || 0 },
+          { name: 'Modern', count: categoryMap.get('modern') || 0 },
+          { name: 'Elegant', count: categoryMap.get('elegant') || 0 },
+          { name: 'Fun', count: categoryMap.get('fun') || 0 },
+          { name: 'Royal', count: categoryMap.get('royal') || 0 },
+          { name: 'Floral', count: categoryMap.get('floral') || 0 },
+        ];
+        setCategories(categoryList);
       }
     } catch (error) {
-      console.error('Error fetching featured cards:', error);
+      console.error('Error fetching data:', error);
+    } finally {
+      setLoading(false);
     }
   };
 
   useEffect(() => {
-    const loadCards = async () => {
-      await fetchFeaturedCards();
-    };
-    loadCards();
-    const interval = setInterval(fetchFeaturedCards, 5000);
+    fetchData();
+    // Refresh every 30 seconds
+    const interval = setInterval(fetchData, 30000);
     return () => clearInterval(interval);
   }, []);
 
-  const categories = [
+  // Default categories if no data
+  const defaultCategories = [
     { name: 'Traditional', icon: '🏛️', count: '150+' },
     { name: 'Modern', icon: '✨', count: '200+' },
     { name: 'Elegant', icon: '💎', count: '120+' },
@@ -52,7 +74,7 @@ export default function HomePage() {
   return (
     <div className="min-h-screen bg-[#f1f3f6]">
 
-      {/* Banner Strip - Pink Theme */}
+      {/* Banner Strip */}
       <section className="bg-gradient-to-r from-pink-500 to-rose-500 py-3">
         <div className="container mx-auto px-4">
           <div className="flex items-center gap-6 overflow-x-auto pb-2">
@@ -92,7 +114,11 @@ export default function HomePage() {
       <section className="bg-white shadow-sm py-3 border-b">
         <div className="container mx-auto px-4">
           <div className="flex items-center gap-6 overflow-x-auto">
-            {categories.map((category) => (
+            {(categories.length > 0 ? categories.map((cat, idx) => ({
+              name: cat.name,
+              icon: defaultCategories[idx]?.icon || '📁',
+              count: cat.count > 0 ? `${cat.count}+` : '0'
+            })) : defaultCategories).map((category) => (
               <Link
                 key={category.name}
                 href={`/cards?category=${category.name.toLowerCase()}`}
@@ -130,66 +156,65 @@ export default function HomePage() {
                   </Link>
                 </div>
 
-                <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-                  {featuredCards.length > 0 ? featuredCards.map((card) => (
-                    <Link 
-                      key={card._id}
-                      href={`/cards/${card._id}`}
-                      className="group border border-gray-100 rounded-sm p-2 hover:shadow-md transition"
-                    >
-                      <div className="relative mb-2">
-                        <img 
-                          src={card.templateImage} 
-                          alt={card.name} 
-                          className="w-full h-32 object-cover rounded-sm"
-                        />
-                        <div className="absolute top-1 right-1 bg-pink-500 text-white text-xs px-1.5 py-0.5 rounded-sm">
-                          4.2 ★
-                        </div>
+                {loading ? (
+                  <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+                    {[1,2,3,4,5,6].map((i) => (
+                      <div key={i} className="border border-gray-100 rounded-sm p-2 animate-pulse">
+                        <div className="w-full h-32 bg-gray-200 rounded-sm mb-2"></div>
+                        <div className="h-4 bg-gray-200 rounded w-3/4 mb-1"></div>
+                        <div className="h-3 bg-gray-200 rounded w-1/2"></div>
                       </div>
-                      <div>
-                        <h3 className="font-medium text-sm text-gray-800 truncate">{card.name}</h3>
-                        <p className="text-xs text-gray-500 mb-1">{card.category}</p>
-                        <div className="flex items-center gap-2">
-                          <span className="font-bold text-lg">₹{card.price}</span>
-                          <span className="text-xs text-gray-400 line-through">₹{card.price + 50}</span>
-                          <span className="text-xs text-green-600 font-medium">50% OFF</span>
+                    ))}
+                  </div>
+                ) : featuredCards.length > 0 ? (
+                  <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+                    {featuredCards.map((card) => (
+                      <Link 
+                        key={card._id}
+                        href={`/cards/${card._id}`}
+                        className="group border border-gray-100 rounded-sm p-2 hover:shadow-md transition"
+                      >
+                        <div className="relative mb-2">
+                          <img 
+                            src={card.templateImage} 
+                            alt={card.name} 
+                            className="w-full h-32 object-cover rounded-sm"
+                            onError={(e) => {
+                              (e.target as HTMLImageElement).src = 'https://via.placeholder.com/300x200?text=Wedding+Card';
+                            }}
+                          />
+                          <div className="absolute top-1 right-1 bg-pink-500 text-white text-xs px-1.5 py-0.5 rounded-sm">
+                            {(card.popularity || 4.2).toFixed(1)} ★
+                          </div>
                         </div>
-                        <div className="mt-1 text-xs text-gray-600">Free Shipping</div>
-                      </div>
-                    </Link>
-                  )) : [1,2,3,4,5,6].map((id) => (
-                    <Link 
-                      key={id}
-                      href={`/cards/${id}`}
-                      className="group border border-gray-100 rounded-sm p-2 hover:shadow-md transition"
-                    >
-                      <div className="relative mb-2">
-                        <div className="w-full h-32 bg-gradient-to-br from-pink-100 to-rose-100 rounded-sm flex items-center justify-center">
-                          <span className="text-4xl">💒</span>
+                        <div>
+                          <h3 className="font-medium text-sm text-gray-800 truncate">{card.name}</h3>
+                          <p className="text-xs text-gray-500 mb-1 capitalize">{card.category}</p>
+                          <div className="flex items-center gap-2">
+                            <span className="font-bold text-lg">₹{card.price}</span>
+                            <span className="text-xs text-gray-400 line-through">₹{card.price + 100}</span>
+                            <span className="text-xs text-green-600 font-medium">50% OFF</span>
+                          </div>
+                          <div className="mt-1 text-xs text-gray-600">Free Shipping</div>
                         </div>
-                        <div className="absolute top-1 right-1 bg-pink-500 text-white text-xs px-1.5 py-0.5 rounded-sm">
-                          4.{id} ★
-                        </div>
-                      </div>
-                      <div>
-                        <h3 className="font-medium text-sm text-gray-800 truncate">Card Design {id}</h3>
-                        <p className="text-xs text-gray-500 mb-1">Traditional</p>
-                        <div className="flex items-center gap-2">
-                          <span className="font-bold text-lg">₹{149 + id*20}</span>
-                          <span className="text-xs text-gray-400 line-through">₹{299 + id*20}</span>
-                          <span className="text-xs text-green-600 font-medium">50% OFF</span>
-                        </div>
-                        <div className="mt-1 text-xs text-gray-600">Free Shipping</div>
-                      </div>
-                    </Link>
-                  ))}
-                </div>
+                      </Link>
+                    ))}
+                  </div>
+                ) : (
+                  <div className="text-center py-8">
+                    <p className="text-gray-500 mb-4">No cards available yet.</p>
+                    {session?.user?.role === 'admin' && (
+                      <Link href="/admin/cards/add" className="text-pink-600 hover:underline">
+                        Add your first card →
+                      </Link>
+                    )}
+                  </div>
+                )}
               </div>
 
-              {/* More Categories */}
+              {/* Best Sellers Section */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {['Best Sellers', 'New Arrivals', 'Premium Collection', 'Budget Friendly'].map((title, idx) => (
+                {['Best Sellers', 'New Arrivals'].map((title, idx) => (
                   <div key={title} className="bg-white rounded-sm shadow-sm p-4">
                     <div className="flex items-center justify-between mb-3">
                       <h3 className="font-bold text-gray-900">{title}</h3>
@@ -197,21 +222,39 @@ export default function HomePage() {
                         See All
                       </Link>
                     </div>
-                    <div className="grid grid-cols-2 gap-3">
-                      {[1,2,3,4].map((i) => (
-                        <Link 
-                          key={i}
-                          href={`/cards/${idx * 4 + i}`}
-                          className="group"
-                        >
-                          <div className="w-full h-24 bg-gradient-to-br from-pink-50 to-rose-50 rounded-sm mb-2 flex items-center justify-center">
-                            <span className="text-2xl">🎊</span>
+                    {loading ? (
+                      <div className="grid grid-cols-2 gap-3">
+                        {[1,2,3,4].map((i) => (
+                          <div key={i} className="animate-pulse">
+                            <div className="w-full h-24 bg-gray-200 rounded-sm mb-2"></div>
+                            <div className="h-3 bg-gray-200 rounded w-3/4"></div>
                           </div>
-                          <p className="text-sm font-medium text-gray-800 truncate">Design {idx * 4 + i}</p>
-                          <p className="text-sm font-bold">₹{199 + idx * 50}</p>
-                        </Link>
-                      ))}
-                    </div>
+                        ))}
+                      </div>
+                    ) : featuredCards.length > 0 ? (
+                      <div className="grid grid-cols-2 gap-3">
+                        {featuredCards.slice(0, 4).map((card, i) => (
+                          <Link 
+                            key={card._id}
+                            href={`/cards/${card._id}`}
+                            className="group"
+                          >
+                            <img 
+                              src={card.templateImage}
+                              alt={card.name}
+                              className="w-full h-24 object-cover rounded-sm mb-2"
+                              onError={(e) => {
+                                (e.target as HTMLImageElement).src = 'https://via.placeholder.com/200x150?text=Card';
+                              }}
+                            />
+                            <p className="text-sm font-medium text-gray-800 truncate">{card.name}</p>
+                            <p className="text-sm font-bold">₹{card.price}</p>
+                          </Link>
+                        ))}
+                      </div>
+                    ) : (
+                      <p className="text-gray-500 text-sm">No cards available</p>
+                    )}
                   </div>
                 ))}
               </div>
@@ -249,7 +292,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Why Choose Us - Compact Style */}
+      {/* Why Choose Us */}
       <section className="py-6 bg-white">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
@@ -271,7 +314,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Footer - Flipkart Style */}
+      {/* Footer */}
       <footer className="bg-[#172337] text-white py-8">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-2 md:grid-cols-5 gap-4">

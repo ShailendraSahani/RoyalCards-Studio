@@ -3,19 +3,6 @@ import { getServerSession } from 'next-auth';
 import { authOptions } from '@/lib/auth';
 import { dbConnect } from '@/lib/mongodb';
 import CardDesign from '@/models/CardDesign';
-import mongoose from 'mongoose';
-
-type CardLean = {
-  _id: mongoose.Types.ObjectId;
-  name: string;
-  description: string;
-  category: string;
-  templateImage: string;
-  price: number;
-  isActive: boolean;
-  createdAt: Date;
-  __v: number;
-};
 
 // GET all active cards or all cards for admin
 export async function GET(request: NextRequest) {
@@ -29,49 +16,13 @@ export async function GET(request: NextRequest) {
     if (all === 'true') {
       query = {};
     }
-    if (category && category !== 'all' && all !== 'true') query.category = category;
-
-    let cards: any[] = await CardDesign.find(query).sort({ createdAt: -1 }).lean();
-
-    // If no cards in database, return sample cards for testing
-    if (cards.length === 0) {
-      cards = [
-        {
-          _id: new mongoose.Types.ObjectId(),
-          name: 'Royal Wedding Card',
-          description: 'Elegant royal wedding card with gold accents',
-          category: 'traditional',
-          templateImage: 'https://via.placeholder.com/300x200?text=Royal+Wedding+Card',
-          price: 500,
-          isActive: true,
-          createdAt: new Date(),
-          __v: 0,
-        },
-        {
-          _id: new mongoose.Types.ObjectId(),
-          name: 'Modern Wedding Card',
-          description: 'Modern wedding card with clean design',
-          category: 'modern',
-          templateImage: 'https://via.placeholder.com/300x200?text=Modern+Wedding+Card',
-          price: 400,
-          isActive: true,
-          createdAt: new Date(),
-          __v: 0,
-        },
-        {
-          _id: new mongoose.Types.ObjectId(),
-          name: 'Elegant Wedding Card',
-          description: 'Elegant wedding card with floral design',
-          category: 'elegant',
-          templateImage: 'https://via.placeholder.com/300x200?text=Elegant+Wedding+Card',
-          price: 600,
-          isActive: true,
-          createdAt: new Date(),
-          __v: 0,
-        },
-      ];
+    if (category && category !== 'all' && all !== 'true') {
+      query.category = category;
     }
 
+    // Return real data from database (no fallback)
+    const cards = await CardDesign.find(query).sort({ createdAt: -1 }).lean();
+    
     return NextResponse.json(cards);
   } catch (error) {
     console.error('Error fetching cards:', error);
@@ -79,7 +30,7 @@ export async function GET(request: NextRequest) {
   }
 }
 
-// POST create new card
+// POST create new card (admin only)
 export async function POST(request: NextRequest) {
   try {
     const session = await getServerSession(authOptions);
@@ -92,7 +43,7 @@ export async function POST(request: NextRequest) {
     const { name, description, category, templateImage, price, isActive, createdBy } = body;
     const priceNumber = Number(price);
 
-    const isValidUrl = (string: string) => { try { new URL(string); return true; } catch { return false; } };
+    const isValidUrl = (str: string) => { try { new URL(str); return true; } catch { return false; } };
 
     if (!name?.trim()) return NextResponse.json({ message: 'Name is required' }, { status: 400 });
     if (!description?.trim()) return NextResponse.json({ message: 'Description is required' }, { status: 400 });
