@@ -1,5 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Hind:wght@400;700&display=swap');
 @import "tailwindcss";
-
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -38,4 +38,23 @@ input:-webkit-autofill:active {
   -webkit-box-shadow: 0 0 0 30px white inset !important;
   -webkit-text-fill-color: #000000 !important;
   border-color: #d1d5db !important;
+}
+@font-face {
+  font-family: 'Kokila';
+  src: url('/fonts/Kokila.ttf') format('truetype');
+}
+
+.hindi-font {
+  font-family: 'Kokila', 'Mangal', serif;
+}
+
+/* Wedding style text */
+.wedding-text {
+  color: #8b0000;
+  text-shadow: 2px 2px 4px gold;
+}
+/* src/app/globals.css */
+
+.font-hindi {
+  font-family: 'Hind', serif;
 }
