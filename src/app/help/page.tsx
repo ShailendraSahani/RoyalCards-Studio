@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import Footer from '@/components/Footer';
 
 export default function HelpPage() {
   const helpCategories = [
@@ -89,10 +90,10 @@ export default function HelpPage() {
           transition={{ duration: 0.8 }}
           className="text-center mb-12"
         >
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-800 mb-4">
+          <h1 className="text-4xl md:text-5xl font-bold text-pink-800 mb-4">
             Help Center
           </h1>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          <p className="text-xl text-pink-600 max-w-2xl mx-auto">
             Find answers to common questions and get the help you need.
           </p>
         </motion.div>
@@ -109,7 +110,7 @@ export default function HelpPage() {
               <input
                 type="text"
                 placeholder="Search for help..."
-                className="w-full px-6 py-4 text-lg border-2 border-gray-200 rounded-full focus:border-rose-400 focus:outline-none shadow-lg"
+                className="w-full px-6 py-4 text-lg border-2 border-pink-200 rounded-full focus:border-rose-400 focus:outline-none shadow-lg"
               />
               <button
                 className="absolute right-3 top-3 bg-rose-500 text-white p-3 rounded-full hover:bg-rose-600 transition-colors shadow-md"
@@ -130,12 +131,12 @@ export default function HelpPage() {
           transition={{ duration: 0.8 }}
           className="mb-16"
         >
-          <h2 className="text-3xl font-bold text-gray-800 text-center mb-8">Browse by Category</h2>
+          <h2 className="text-3xl font-bold text-pink-800 text-center mb-8">Browse by Category</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
             {helpCategories.map((category, index) => (
               <div key={index} className="bg-white rounded-xl shadow-lg p-6">
                 <div className="text-4xl mb-4">{category.icon}</div>
-                <h3 className="text-xl font-bold text-gray-800 mb-4">{category.title}</h3>
+                <h3 className="text-xl font-bold text-pink-800 mb-4">{category.title}</h3>
                 <ul className="space-y-2">
                   {category.topics.map((topic, i) => (
                     <li key={i}>
@@ -157,20 +158,20 @@ export default function HelpPage() {
           transition={{ duration: 0.8 }}
           className="mb-16"
         >
-          <h2 className="text-3xl font-bold text-gray-800 text-center mb-8">Quick Guides</h2>
+          <h2 className="text-3xl font-bold text-pink-800 text-center mb-8">Quick Guides</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {quickGuides.map((guide, index) => (
               <div key={index} className="bg-white rounded-xl shadow-lg p-6">
                 <div className="text-4xl mb-4">{guide.icon}</div>
-                <h3 className="text-xl font-bold text-gray-800 mb-2">{guide.title}</h3>
-                <p className="text-gray-600 mb-6">{guide.description}</p>
+                <h3 className="text-xl font-bold text-pink-800 mb-2">{guide.title}</h3>
+                <p className="text-pink-600 mb-6">{guide.description}</p>
                 <ol className="space-y-2">
                   {guide.steps.map((step, i) => (
                     <li key={i} className="flex items-start gap-3">
                       <span className="bg-rose-100 text-rose-600 rounded-full w-6 h-6 flex items-center justify-center text-sm font-semibold flex-shrink-0 mt-0.5">
                         {i + 1}
                       </span>
-                      <span className="text-sm text-gray-700">{step}</span>
+                      <span className="text-sm text-pink-700">{step}</span>
                     </li>
                   ))}
                 </ol>
@@ -186,7 +187,7 @@ export default function HelpPage() {
           transition={{ duration: 0.8 }}
           className="mb-16"
         >
-          <h2 className="text-3xl font-bold text-gray-800 text-center mb-8">Popular Articles</h2>
+          <h2 className="text-3xl font-bold text-pink-800 text-center mb-8">Popular Articles</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
             {[
               { title: 'How to upload and edit photos', views: '2.3k views' },
@@ -195,8 +196,8 @@ export default function HelpPage() {
               { title: 'Payment and refund policies', views: '1.2k views' }
             ].map((article, index) => (
               <div key={index} className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
-                <h3 className="font-semibold text-gray-800 mb-2">{article.title}</h3>
-                <p className="text-sm text-gray-500">{article.views}</p>
+                <h3 className="font-semibold text-pink-800 mb-2">{article.title}</h3>
+                <p className="text-sm text-pink-500">{article.views}</p>
               </div>
             ))}
           </div>
@@ -217,15 +218,15 @@ export default function HelpPage() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 href="/contact"
-                className="bg-white text-rose-600 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors"
+                className="bg-white text-rose-600 px-6 py-3 rounded-lg font-semibold hover:bg-pink-100 transition-colors"
               >
                 Contact Support
               </Link>
               <a
-                href="tel:+919876543210"
+                href="tel:+917388711487"
                 className="border-2 border-white text-white px-6 py-3 rounded-lg font-semibold hover:bg-white hover:text-rose-600 transition-colors"
               >
-                Call Now: +91 7
+                Call Now: +91 73887 11487
               </a>
             </div>
           </div>

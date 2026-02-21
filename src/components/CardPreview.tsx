@@ -172,7 +172,7 @@ export default function CardPreview({ booking, card }: CardPreviewProps) {
       </div>
 
       {/* Template Info */}
-      <div className="mt-6 text-center text-gray-600">
+      <div className="mt-6 text-center text-pink-600">
         <p className="text-sm">
           Template: <span className="font-medium">{card.name}</span> •
           Quantity: <span className="font-medium">{booking.quantity}</span> •

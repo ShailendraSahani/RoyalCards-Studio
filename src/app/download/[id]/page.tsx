@@ -156,12 +156,12 @@ export default function DownloadPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-pink-50">
       {/* Header */}
       <header className="bg-white shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-6">
-            <h1 className="text-2xl font-bold text-gray-900">Download Digital Invitation</h1>
+            <h1 className="text-2xl font-bold text-pink-900">Download Digital Invitation</h1>
             <div className="flex space-x-4">
               <Link
                 href="/dashboard"
@@ -178,8 +178,8 @@ export default function DownloadPage() {
         <div className="bg-white shadow-md rounded-lg overflow-hidden">
           <div className="px-6 py-8">
             <div className="text-center mb-8">
-              <h2 className="text-3xl font-bold text-gray-900 mb-4">Your Marriage Invitation</h2>
-              <p className="text-lg text-gray-600">
+              <h2 className="text-3xl font-bold text-pink-900 mb-4">Your Marriage Invitation</h2>
+              <p className="text-lg text-pink-600">
                 Download your digital marriage invitation card
               </p>
             </div>
@@ -187,7 +187,7 @@ export default function DownloadPage() {
             {/* Order Details */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
               <div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-4">Order Information</h3>
+                <h3 className="text-lg font-semibold text-pink-900 mb-4">Order Information</h3>
                 <div className="space-y-2">
                   <p><span className="font-medium">Order ID:</span> {order._id}</p>
                   <p><span className="font-medium">Card Design:</span> {order.cardDesign.name}</p>
@@ -198,7 +198,7 @@ export default function DownloadPage() {
                       order.status === 'delivered' ? 'bg-green-100 text-green-800' :
                       order.status === 'shipped' ? 'bg-blue-100 text-blue-800' :
                       order.status === 'processing' ? 'bg-yellow-100 text-yellow-800' :
-                      'bg-gray-100 text-gray-800'
+                      'bg-pink-100 text-pink-800'
                     }`}>
                       {order.status}
                     </span>
@@ -208,7 +208,7 @@ export default function DownloadPage() {
               </div>
 
               <div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-4">Shipping Address</h3>
+                <h3 className="text-lg font-semibold text-pink-900 mb-4">Shipping Address</h3>
                 <div className="space-y-1">
                   <p>{order.shippingAddress.name}</p>
                   <p>{order.shippingAddress.address}</p>
@@ -220,12 +220,12 @@ export default function DownloadPage() {
 
             {/* Card Preview */}
             <div className="mb-8">
-              <h3 className="text-lg font-semibold text-gray-900 mb-4 text-center">Card Preview</h3>
+              <h3 className="text-lg font-semibold text-pink-900 mb-4 text-center">Card Preview</h3>
               <div className="flex justify-center">
                 <img
                   src={order.customization.previewImage}
                   alt="Card Preview"
-                  className="max-w-md border border-gray-300 rounded-md shadow-md"
+                  className="max-w-md border border-pink-300 rounded-md shadow-md"
                 />
               </div>
             </div>
@@ -242,7 +242,7 @@ export default function DownloadPage() {
                  'Download Digital Invitation'}
               </button>
               {order.status !== 'delivered' && (
-                <p className="text-sm text-gray-600 mt-2">
+                <p className="text-sm text-pink-600 mt-2">
                   Digital invitation will be available once your order is delivered.
                 </p>
               )}

@@ -83,7 +83,7 @@ export default function AdminOrders() {
       case 'delivered': return 'bg-green-100 text-green-800';
       case 'cancelled': return 'bg-red-100 text-red-800';
       case 'paid': return 'bg-indigo-100 text-indigo-800';
-      default: return 'bg-gray-100 text-gray-800';
+      default: return 'bg-pink-100 text-pink-800';
     }
   };
 
@@ -113,20 +113,20 @@ export default function AdminOrders() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-pink-50">
       {/* Header */}
       <header className="bg-white shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-6">
             <div className="flex items-center space-x-4">
               <Link href="/admin" className="text-indigo-600 hover:text-indigo-900">← Back to Dashboard</Link>
-              <h1 className="text-2xl font-bold text-gray-900">Manage Orders</h1>
+              <h1 className="text-2xl font-bold text-pink-900">Manage Orders</h1>
             </div>
             <div className="flex items-center space-x-4">
               <select
                 value={filter}
                 onChange={(e) => setFilter(e.target.value)}
-                className="px-3 py-2 border border-gray-300 rounded-md bg-white"
+                className="px-3 py-2 border border-pink-300 rounded-md bg-white"
               >
                 <option value="all">All Orders</option>
                 <option value="pending">Pending</option>
@@ -146,27 +146,27 @@ export default function AdminOrders() {
         <div className="bg-white shadow-md rounded-lg overflow-hidden">
           <div className="overflow-x-auto">
             <table className="min-w-full divide-y divide-gray-200">
-              <thead className="bg-gray-50">
+              <thead className="bg-pink-50">
                 <tr>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  <th className="px-6 py-3 text-left text-xs font-medium text-pink-500 uppercase tracking-wider">
                     Order ID
                   </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  <th className="px-6 py-3 text-left text-xs font-medium text-pink-500 uppercase tracking-wider">
                     Customer
                   </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  <th className="px-6 py-3 text-left text-xs font-medium text-pink-500 uppercase tracking-wider">
                     Card
                   </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  <th className="px-6 py-3 text-left text-xs font-medium text-pink-500 uppercase tracking-wider">
                     Amount
                   </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  <th className="px-6 py-3 text-left text-xs font-medium text-pink-500 uppercase tracking-wider">
                     Status
                   </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  <th className="px-6 py-3 text-left text-xs font-medium text-pink-500 uppercase tracking-wider">
                     Date
                   </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  <th className="px-6 py-3 text-left text-xs font-medium text-pink-500 uppercase tracking-wider">
                     Actions
                   </th>
                 </tr>
@@ -177,20 +177,20 @@ export default function AdminOrders() {
                     key={order._id}
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
-                    className="hover:bg-gray-50"
+                    className="hover:bg-pink-50"
                   >
-                    <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                    <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-pink-900">
                       {order._id.slice(-8)}
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
-                      <div className="text-sm text-gray-900">{order.user.name}</div>
-                      <div className="text-sm text-gray-500">{order.user.email}</div>
+                      <div className="text-sm text-pink-900">{order.user.name}</div>
+                      <div className="text-sm text-pink-500">{order.user.email}</div>
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
-                      <div className="text-sm text-gray-900">{order.cardDesign.name}</div>
-                      <div className="text-sm text-gray-500">Qty: {order.quantity}</div>
+                      <div className="text-sm text-pink-900">{order.cardDesign.name}</div>
+                      <div className="text-sm text-pink-500">Qty: {order.quantity}</div>
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                    <td className="px-6 py-4 whitespace-nowrap text-sm text-pink-900">
                       ₹{order.totalPrice}
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
@@ -199,7 +199,7 @@ export default function AdminOrders() {
                         <span className="ml-1 capitalize">{order.status}</span>
                       </span>
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                    <td className="px-6 py-4 whitespace-nowrap text-sm text-pink-500">
                       {new Date(order.createdAt).toLocaleDateString()}
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
@@ -214,7 +214,7 @@ export default function AdminOrders() {
                           <select
                             value={order.status}
                             onChange={(e) => updateOrderStatus(order._id, e.target.value)}
-                            className="text-xs border border-gray-300 rounded px-2 py-1"
+                            className="text-xs border border-pink-300 rounded px-2 py-1"
                           >
                             <option value="paid">Paid</option>
                             <option value="processing">Processing</option>
@@ -227,7 +227,7 @@ export default function AdminOrders() {
                           <select
                             value={order.status}
                             onChange={(e) => updateOrderStatus(order._id, e.target.value)}
-                            className="text-xs border border-gray-300 rounded px-2 py-1"
+                            className="text-xs border border-pink-300 rounded px-2 py-1"
                           >
                             <option value="processing">Processing</option>
                             <option value="shipped">Shipped</option>
@@ -239,7 +239,7 @@ export default function AdminOrders() {
                           <select
                             value={order.status}
                             onChange={(e) => updateOrderStatus(order._id, e.target.value)}
-                            className="text-xs border border-gray-300 rounded px-2 py-1"
+                            className="text-xs border border-pink-300 rounded px-2 py-1"
                           >
                             <option value="shipped">Shipped</option>
                             <option value="delivered">Delivered</option>
@@ -268,7 +268,7 @@ export default function AdminOrders() {
               <h2 className="text-xl font-bold">Order Details</h2>
               <button
                 onClick={() => setSelectedOrder(null)}
-                className="text-gray-400 hover:text-gray-600"
+                className="text-pink-400 hover:text-pink-600"
               >
                 ✕
               </button>
@@ -277,11 +277,11 @@ export default function AdminOrders() {
             <div className="space-y-4">
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-sm font-medium text-gray-700">Order ID</label>
-                  <p className="text-sm text-gray-900">{selectedOrder._id}</p>
+                  <label className="block text-sm font-medium text-pink-700">Order ID</label>
+                  <p className="text-sm text-pink-900">{selectedOrder._id}</p>
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-700">Status</label>
+                  <label className="block text-sm font-medium text-pink-700">Status</label>
                   <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${getStatusColor(selectedOrder.status)}`}>
                     {getStatusIcon(selectedOrder.status)}
                     <span className="ml-1 capitalize">{selectedOrder.status}</span>
@@ -290,31 +290,31 @@ export default function AdminOrders() {
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700">Customer</label>
-                <p className="text-sm text-gray-900">{selectedOrder.user.name}</p>
-                <p className="text-sm text-gray-500">{selectedOrder.user.email}</p>
+                <label className="block text-sm font-medium text-pink-700">Customer</label>
+                <p className="text-sm text-pink-900">{selectedOrder.user.name}</p>
+                <p className="text-sm text-pink-500">{selectedOrder.user.email}</p>
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700">Card Details</label>
-                <p className="text-sm text-gray-900">{selectedOrder.cardDesign.name}</p>
-                <p className="text-sm text-gray-500">Quantity: {selectedOrder.quantity} × ₹{selectedOrder.cardDesign.price}</p>
-                <p className="text-sm font-semibold text-gray-900">Total: ₹{selectedOrder.totalPrice}</p>
+                <label className="block text-sm font-medium text-pink-700">Card Details</label>
+                <p className="text-sm text-pink-900">{selectedOrder.cardDesign.name}</p>
+                <p className="text-sm text-pink-500">Quantity: {selectedOrder.quantity} × ₹{selectedOrder.cardDesign.price}</p>
+                <p className="text-sm font-semibold text-pink-900">Total: ₹{selectedOrder.totalPrice}</p>
               </div>
 
               {selectedOrder.type === 'direct' && selectedOrder.recipientName && (
                 <div>
-                  <label className="block text-sm font-medium text-gray-700">Recipient Details</label>
-                  <p className="text-sm text-gray-900">Name: {selectedOrder.recipientName}</p>
+                  <label className="block text-sm font-medium text-pink-700">Recipient Details</label>
+                  <p className="text-sm text-pink-900">Name: {selectedOrder.recipientName}</p>
                   {selectedOrder.deliveryDate && (
-                    <p className="text-sm text-gray-500">Delivery Date: {new Date(selectedOrder.deliveryDate).toLocaleDateString()}</p>
+                    <p className="text-sm text-pink-500">Delivery Date: {new Date(selectedOrder.deliveryDate).toLocaleDateString()}</p>
                   )}
                 </div>
               )}
 
               <div>
-                <label className="block text-sm font-medium text-gray-700">Order Date</label>
-                <p className="text-sm text-gray-500">{new Date(selectedOrder.createdAt).toLocaleString()}</p>
+                <label className="block text-sm font-medium text-pink-700">Order Date</label>
+                <p className="text-sm text-pink-500">{new Date(selectedOrder.createdAt).toLocaleString()}</p>
               </div>
             </div>
           </motion.div>

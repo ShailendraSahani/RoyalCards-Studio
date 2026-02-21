@@ -71,10 +71,10 @@ export default function SizeGuidePage() {
           transition={{ duration: 0.8 }}
           className="text-center mb-12"
         >
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-800 mb-4">
+          <h1 className="text-4xl md:text-5xl font-bold text-pink-800 mb-4">
             Size Guide
           </h1>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          <p className="text-xl text-pink-600 max-w-2xl mx-auto">
             Choose the perfect size and paper type for your wedding cards.
           </p>
         </motion.div>
@@ -86,7 +86,7 @@ export default function SizeGuidePage() {
           transition={{ duration: 0.8 }}
           className="mb-16"
         >
-          <h2 className="text-3xl font-bold text-gray-800 text-center mb-8">Card Sizes</h2>
+          <h2 className="text-3xl font-bold text-pink-800 text-center mb-8">Card Sizes</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
             {cardSizes.map((size, index) => (
               <motion.div
@@ -97,14 +97,14 @@ export default function SizeGuidePage() {
                 <div className="flex items-center gap-4 mb-4">
                   <div className="text-4xl">{size.icon}</div>
                   <div>
-                    <h3 className="text-xl font-bold text-gray-800">{size.name}</h3>
+                    <h3 className="text-xl font-bold text-pink-800">{size.name}</h3>
                     <p className="text-rose-600 font-semibold">{size.dimensions}</p>
                   </div>
                 </div>
-                <p className="text-gray-600 mb-4">{size.description}</p>
+                <p className="text-pink-600 mb-4">{size.description}</p>
                 <div>
-                  <h4 className="font-semibold text-gray-800 mb-2">Common uses:</h4>
-                  <ul className="text-sm text-gray-600 space-y-1">
+                  <h4 className="font-semibold text-pink-800 mb-2">Common uses:</h4>
+                  <ul className="text-sm text-pink-600 space-y-1">
                     {size.uses.map((use, i) => (
                       <li key={i}>• {use}</li>
                     ))}
@@ -122,14 +122,14 @@ export default function SizeGuidePage() {
           transition={{ duration: 0.8 }}
           className="mb-16"
         >
-          <h2 className="text-3xl font-bold text-gray-800 text-center mb-8">Paper Types</h2>
+          <h2 className="text-3xl font-bold text-pink-800 text-center mb-8">Paper Types</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
             {paperTypes.map((paper, index) => (
               <div key={index} className="bg-white rounded-lg shadow-md p-6">
-                <h3 className="text-lg font-bold text-gray-800 mb-2">{paper.name}</h3>
+                <h3 className="text-lg font-bold text-pink-800 mb-2">{paper.name}</h3>
                 <p className="text-rose-600 font-semibold mb-3">{paper.thickness}</p>
-                <p className="text-gray-600 mb-3">{paper.description}</p>
-                <p className="text-sm text-gray-500">
+                <p className="text-pink-600 mb-3">{paper.description}</p>
+                <p className="text-sm text-pink-500">
                   <strong>Best for:</strong> {paper.bestFor}
                 </p>
               </div>
@@ -144,31 +144,31 @@ export default function SizeGuidePage() {
           transition={{ duration: 0.8 }}
           className="mb-16"
         >
-          <h2 className="text-3xl font-bold text-gray-800 text-center mb-8">Size Comparison</h2>
+          <h2 className="text-3xl font-bold text-pink-800 text-center mb-8">Size Comparison</h2>
           <div className="bg-white rounded-xl shadow-lg p-8 max-w-4xl mx-auto">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
               <div className="text-center">
-                <div className="bg-gray-100 rounded-lg p-4 mb-4" style={{width: '100px', height: '140px', margin: '0 auto'}}>
-                  <div className="bg-white border-2 border-gray-300 rounded" style={{width: '80px', height: '112px', margin: '14px auto'}}></div>
+                <div className="bg-pink-100 rounded-lg p-4 mb-4" style={{width: '100px', height: '140px', margin: '0 auto'}}>
+                  <div className="bg-white border-2 border-pink-300 rounded" style={{width: '80px', height: '112px', margin: '14px auto'}}></div>
                 </div>
-                <h3 className="font-semibold text-gray-800">Standard</h3>
-                <p className="text-sm text-gray-600">5" x 7"</p>
+                <h3 className="font-semibold text-pink-800">Standard</h3>
+                <p className="text-sm text-pink-600">5" x 7"</p>
               </div>
 
               <div className="text-center">
-                <div className="bg-gray-100 rounded-lg p-4 mb-4" style={{width: '120px', height: '160px', margin: '0 auto'}}>
-                  <div className="bg-white border-2 border-gray-300 rounded" style={{width: '96px', height: '128px', margin: '16px auto'}}></div>
+                <div className="bg-pink-100 rounded-lg p-4 mb-4" style={{width: '120px', height: '160px', margin: '0 auto'}}>
+                  <div className="bg-white border-2 border-pink-300 rounded" style={{width: '96px', height: '128px', margin: '16px auto'}}></div>
                 </div>
-                <h3 className="font-semibold text-gray-800">Large</h3>
-                <p className="text-sm text-gray-600">6" &times; 8"</p>
+                <h3 className="font-semibold text-pink-800">Large</h3>
+                <p className="text-sm text-pink-600">6" &times; 8"</p>
               </div>
 
               <div className="text-center">
-                <div className="bg-gray-100 rounded-lg p-4 mb-4" style={{width: '110px', height: '110px', margin: '0 auto'}}>
-                  <div className="bg-white border-2 border-gray-300 rounded" style={{width: '88px', height: '88px', margin: '11px auto'}}></div>
+                <div className="bg-pink-100 rounded-lg p-4 mb-4" style={{width: '110px', height: '110px', margin: '0 auto'}}>
+                  <div className="bg-white border-2 border-pink-300 rounded" style={{width: '88px', height: '88px', margin: '11px auto'}}></div>
                 </div>
-                <h3 className="font-semibold text-gray-800">Square</h3>
-                <p className="text-sm text-gray-600">5.5" x 5.5"</p>
+                <h3 className="font-semibold text-pink-800">Square</h3>
+                <p className="text-sm text-pink-600">5.5" x 5.5"</p>
               </div>
             </div>
           </div>

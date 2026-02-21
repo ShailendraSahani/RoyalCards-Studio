@@ -141,11 +141,11 @@ export default function AdminBookingsPage() {
   if (status === 'loading' || loading) {
     return (
       <div className="min-h-screen flex items-center justify-center relative overflow-hidden">
-        {/* Animated Background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900">
-          <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/20 via-purple-500/20 to-pink-500/20 animate-pulse"></div>
-          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-indigo-500/10 rounded-full blur-3xl animate-bounce"></div>
-          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-pink-500/10 rounded-full blur-3xl animate-bounce delay-1000"></div>
+        {/* Animated Background - Pink and Yellow Theme */}
+        <div className="absolute inset-0 bg-gradient-to-br from-pink-900 via-rose-800 to-yellow-600">
+          <div className="absolute inset-0 bg-gradient-to-br from-pink-500/20 via-rose-500/20 to-yellow-500/20 animate-pulse"></div>
+          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-pink-500/10 rounded-full blur-3xl animate-bounce"></div>
+          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-yellow-500/10 rounded-full blur-3xl animate-bounce delay-1000"></div>
         </div>
 
         {/* Floating Particles */}
@@ -199,12 +199,12 @@ export default function AdminBookingsPage() {
 
   return (
     <div className="min-h-screen relative overflow-hidden">
-      {/* Dynamic Animated Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-indigo-900 via-purple-900 via-pink-900 to-rose-900">
-        <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/20 via-purple-500/20 via-pink-500/20 to-rose-500/20 animate-pulse"></div>
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-indigo-500/10 rounded-full blur-3xl animate-bounce"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-pink-500/10 rounded-full blur-3xl animate-bounce delay-1000"></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-to-r from-indigo-400/5 via-purple-400/5 to-pink-400/5 rounded-full blur-3xl animate-pulse delay-500"></div>
+      {/* Dynamic Animated Background - Pink and Yellow Theme */}
+      <div className="absolute inset-0 bg-gradient-to-br from-pink-900 via-rose-800 via-yellow-600 to-orange-700">
+        <div className="absolute inset-0 bg-gradient-to-br from-pink-500/20 via-rose-500/20 via-yellow-500/20 to-orange-500/20 animate-pulse"></div>
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-pink-500/10 rounded-full blur-3xl animate-bounce"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-yellow-500/10 rounded-full blur-3xl animate-bounce delay-1000"></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-to-r from-pink-400/5 via-yellow-400/5 to-orange-400/5 rounded-full blur-3xl animate-pulse delay-500"></div>
       </div>
 
       {/* Floating Particles */}
@@ -240,7 +240,7 @@ export default function AdminBookingsPage() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
             >
-              <h1 className="text-3xl font-bold bg-gradient-to-r from-white via-indigo-200 to-pink-200 bg-clip-text text-transparent drop-shadow-lg">
+              <h1 className="text-3xl font-bold bg-gradient-to-r from-white via-pink-200 to-yellow-200 bg-clip-text text-transparent drop-shadow-lg">
                 Admin Dashboard - Bookings
               </h1>
               <p className="text-sm text-white/80 mt-1">Manage wedding card bookings</p>
@@ -252,9 +252,9 @@ export default function AdminBookingsPage() {
             >
               <Link
                 href="/admin"
-                className="group relative bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-6 py-3 rounded-xl font-semibold shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 overflow-hidden"
+                className="group relative bg-gradient-to-r from-pink-600 to-yellow-500 text-white px-6 py-3 rounded-xl font-semibold shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 overflow-hidden"
               >
-                <div className="absolute inset-0 bg-gradient-to-r from-indigo-400 to-purple-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div className="absolute inset-0 bg-gradient-to-r from-pink-400 to-yellow-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 <span className="relative z-10">Back to Dashboard</span>
               </Link>
             </motion.div>
@@ -328,14 +328,14 @@ export default function AdminBookingsPage() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="bg-white rounded-xl shadow-lg p-6"
+            className="bg-white/90 backdrop-blur-sm rounded-xl shadow-lg p-6"
           >
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-sm text-gray-600">Total Bookings</p>
-                <p className="text-2xl font-bold text-indigo-600">{stats.total}</p>
+                <p className="text-sm text-pink-600 font-medium">Total Bookings</p>
+                <p className="text-2xl font-bold text-pink-700">{stats.total}</p>
               </div>
-              <Calendar className="text-indigo-600" size={24} />
+              <Calendar className="text-pink-500" size={24} />
             </div>
           </motion.div>
 
@@ -343,14 +343,14 @@ export default function AdminBookingsPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="bg-white rounded-xl shadow-lg p-6"
+            className="bg-white/90 backdrop-blur-sm rounded-xl shadow-lg p-6"
           >
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-sm text-gray-600">Paid Orders</p>
+                <p className="text-sm text-pink-600 font-medium">Paid Orders</p>
                 <p className="text-2xl font-bold text-green-600">{stats.paid}</p>
               </div>
-              <Users className="text-green-600" size={24} />
+              <Users className="text-green-500" size={24} />
             </div>
           </motion.div>
 
@@ -358,14 +358,14 @@ export default function AdminBookingsPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="bg-white rounded-xl shadow-lg p-6"
+            className="bg-white/90 backdrop-blur-sm rounded-xl shadow-lg p-6"
           >
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-sm text-gray-600">Pending Payment</p>
+                <p className="text-sm text-pink-600 font-medium">Pending Payment</p>
                 <p className="text-2xl font-bold text-yellow-600">{stats.pending}</p>
               </div>
-              <div className="w-6 h-6 bg-yellow-600 rounded-full flex items-center justify-center">
+              <div className="w-6 h-6 bg-yellow-500 rounded-full flex items-center justify-center">
                 <span className="text-white text-xs">!</span>
               </div>
             </div>
@@ -375,14 +375,14 @@ export default function AdminBookingsPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 }}
-            className="bg-white rounded-xl shadow-lg p-6"
+            className="bg-white/90 backdrop-blur-sm rounded-xl shadow-lg p-6"
           >
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-sm text-gray-600">Total Revenue</p>
+                <p className="text-sm text-pink-600 font-medium">Total Revenue</p>
                 <p className="text-2xl font-bold text-green-600">₹{stats.revenue}</p>
               </div>
-              <DollarSign className="text-green-600" size={24} />
+              <DollarSign className="text-green-500" size={24} />
             </div>
           </motion.div>
         </div>
@@ -401,7 +401,7 @@ export default function AdminBookingsPage() {
               onClick={() => setFilter('all')}
               className={`relative px-6 py-3 rounded-xl font-semibold transition-all duration-300 overflow-hidden ${
                 filter === 'all'
-                  ? 'bg-gradient-to-r from-indigo-600 to-purple-600 text-white shadow-xl'
+                  ? 'bg-gradient-to-r from-pink-600 to-rose-600 text-white shadow-xl'
                   : 'bg-white/10 text-white/80 hover:bg-white/20 backdrop-blur-sm border border-white/20'
               }`}
             >
@@ -409,7 +409,7 @@ export default function AdminBookingsPage() {
               {filter === 'all' && (
                 <motion.div
                   layoutId="activeFilter"
-                  className="absolute inset-0 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-xl"
+                  className="absolute inset-0 bg-gradient-to-r from-pink-600 to-rose-600 rounded-xl"
                   transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
                 />
               )}
@@ -421,7 +421,7 @@ export default function AdminBookingsPage() {
               onClick={() => setFilter('paid')}
               className={`relative px-6 py-3 rounded-xl font-semibold transition-all duration-300 overflow-hidden ${
                 filter === 'paid'
-                  ? 'bg-gradient-to-r from-green-600 to-emerald-600 text-white shadow-xl'
+                  ? 'bg-gradient-to-r from-green-500 to-emerald-500 text-white shadow-xl'
                   : 'bg-white/10 text-white/80 hover:bg-white/20 backdrop-blur-sm border border-white/20'
               }`}
             >
@@ -429,7 +429,7 @@ export default function AdminBookingsPage() {
               {filter === 'paid' && (
                 <motion.div
                   layoutId="activeFilter"
-                  className="absolute inset-0 bg-gradient-to-r from-green-600 to-emerald-600 rounded-xl"
+                  className="absolute inset-0 bg-gradient-to-r from-green-500 to-emerald-500 rounded-xl"
                   transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
                 />
               )}
@@ -441,7 +441,7 @@ export default function AdminBookingsPage() {
               onClick={() => setFilter('pending')}
               className={`relative px-6 py-3 rounded-xl font-semibold transition-all duration-300 overflow-hidden ${
                 filter === 'pending'
-                  ? 'bg-gradient-to-r from-yellow-600 to-orange-600 text-white shadow-xl'
+                  ? 'bg-gradient-to-r from-yellow-500 to-orange-500 text-white shadow-xl'
                   : 'bg-white/10 text-white/80 hover:bg-white/20 backdrop-blur-sm border border-white/20'
               }`}
             >
@@ -449,7 +449,7 @@ export default function AdminBookingsPage() {
               {filter === 'pending' && (
                 <motion.div
                   layoutId="activeFilter"
-                  className="absolute inset-0 bg-gradient-to-r from-yellow-600 to-orange-600 rounded-xl"
+                  className="absolute inset-0 bg-gradient-to-r from-yellow-500 to-orange-500 rounded-xl"
                   transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
                 />
               )}
@@ -461,7 +461,7 @@ export default function AdminBookingsPage() {
               onClick={() => setFilter('completed')}
               className={`relative px-6 py-3 rounded-xl font-semibold transition-all duration-300 overflow-hidden ${
                 filter === 'completed'
-                  ? 'bg-gradient-to-r from-blue-600 to-cyan-600 text-white shadow-xl'
+                  ? 'bg-gradient-to-r from-yellow-600 to-amber-600 text-white shadow-xl'
                   : 'bg-white/10 text-white/80 hover:bg-white/20 backdrop-blur-sm border border-white/20'
               }`}
             >
@@ -469,7 +469,7 @@ export default function AdminBookingsPage() {
               {filter === 'completed' && (
                 <motion.div
                   layoutId="activeFilter"
-                  className="absolute inset-0 bg-gradient-to-r from-blue-600 to-cyan-600 rounded-xl"
+                  className="absolute inset-0 bg-gradient-to-r from-yellow-600 to-amber-600 rounded-xl"
                   transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
                 />
               )}
@@ -478,65 +478,65 @@ export default function AdminBookingsPage() {
         </motion.div>
 
         {/* Bookings Table */}
-        <div className="bg-white rounded-xl shadow-lg overflow-hidden">
-          <div className="px-6 py-4 border-b border-gray-200">
-            <h2 className="text-xl font-bold text-gray-800">Wedding Bookings</h2>
+        <div className="bg-white/95 backdrop-blur-sm rounded-xl shadow-lg overflow-hidden">
+          <div className="px-6 py-4 border-b border-yellow-200 bg-yellow-50">
+            <h2 className="text-xl font-bold text-pink-800">Wedding Bookings</h2>
           </div>
 
           <div className="overflow-x-auto">
             <table className="w-full">
-              <thead className="bg-gray-50">
+              <thead className="bg-yellow-50">
                 <tr>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  <th className="px-6 py-3 text-left text-xs font-medium text-yellow-600 uppercase tracking-wider">
                     Order Details
                   </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  <th className="px-6 py-3 text-left text-xs font-medium text-yellow-600 uppercase tracking-wider">
                     Couple
                   </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  <th className="px-6 py-3 text-left text-xs font-medium text-yellow-600 uppercase tracking-wider">
                     Wedding Date
                   </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  <th className="px-6 py-3 text-left text-xs font-medium text-yellow-600 uppercase tracking-wider">
                     Amount
                   </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  <th className="px-6 py-3 text-left text-xs font-medium text-yellow-600 uppercase tracking-wider">
                     Status
                   </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  <th className="px-6 py-3 text-left text-xs font-medium text-yellow-600 uppercase tracking-wider">
                     Actions
                   </th>
                 </tr>
               </thead>
-              <tbody className="bg-white divide-y divide-gray-200">
+              <tbody className="bg-white divide-y divide-yellow-100">
                 {filteredBookings.map((booking) => (
                   <motion.tr
                     key={booking._id}
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
-                    className="hover:bg-gray-50"
+                    className="hover:bg-yellow-50"
                   >
                     <td className="px-6 py-4 whitespace-nowrap">
                       <div>
-                        <div className="text-sm font-medium text-gray-900">
+                        <div className="text-sm font-medium text-yellow-900">
                           {booking.orderId}
                         </div>
-                        <div className="text-sm text-gray-500">
+                        <div className="text-sm text-yellow-600">
                           {new Date(booking.createdAt).toLocaleDateString()}
                         </div>
                       </div>
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
-                      <div className="text-sm text-gray-900">
+                      <div className="text-sm text-yellow-900 font-medium">
                         {booking.groom.fullName} & {booking.bride.fullName}
                       </div>
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
-                      <div className="text-sm text-gray-900">
+                      <div className="text-sm text-yellow-900">
                         {new Date(booking.wedding.date).toLocaleDateString('en-IN')}
                       </div>
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
-                      <div className="text-sm font-medium text-gray-900">
+                      <div className="text-sm font-bold text-pink-600">
                         ₹{booking.price}
                       </div>
                     </td>
@@ -568,7 +568,7 @@ export default function AdminBookingsPage() {
                         <Link
                           href={`/invite/${booking.shareSlug}`}
                           target="_blank"
-                          className="text-indigo-600 hover:text-indigo-900 flex items-center space-x-1"
+                          className="text-pink-600 hover:text-pink-900 flex items-center space-x-1"
                           title="View invitation card"
                           aria-label="View invitation card"
                         >
@@ -594,7 +594,7 @@ export default function AdminBookingsPage() {
                             navigator.clipboard.writeText(shareUrl);
                             alert('Share link copied!');
                           }}
-                          className="text-purple-600 hover:text-purple-900 flex items-center space-x-1"
+                          className="text-yellow-600 hover:text-yellow-900 flex items-center space-x-1"
                           title="Copy share link"
                           aria-label="Copy share link to clipboard"
                         >
@@ -611,7 +611,7 @@ export default function AdminBookingsPage() {
 
           {filteredBookings.length === 0 && (
             <div className="text-center py-12">
-              <p className="text-gray-500">No bookings found for the selected filter.</p>
+              <p className="text-pink-500">No bookings found for the selected filter.</p>
             </div>
           )}
         </div>
@@ -626,12 +626,12 @@ export default function AdminBookingsPage() {
             transition={{ duration: 0.3 }}
             className="bg-white rounded-2xl shadow-2xl max-w-6xl w-full max-h-[95vh] overflow-hidden"
           >
-            {/* Header */}
-            <div className="bg-gradient-to-r from-indigo-600 to-pink-600 text-white p-6">
+            {/* Header - Pink and Yellow Theme */}
+            <div className="bg-gradient-to-r from-pink-600 to-yellow-500 text-white p-6">
               <div className="flex justify-between items-center">
                 <div>
                   <h2 className="text-3xl font-bold">Booking Details</h2>
-                  <p className="text-indigo-100 mt-1">Order ID: {selectedBooking.orderId}</p>
+                  <p className="text-pink-100 mt-1">Order ID: {selectedBooking.orderId}</p>
                 </div>
                 <button
                   onClick={() => setIsModalOpen(false)}
@@ -646,10 +646,10 @@ export default function AdminBookingsPage() {
 
             <div className="overflow-y-auto max-h-[calc(95vh-120px)]">
               {/* Card Preview Section */}
-              <div className="p-6 bg-gradient-to-br from-rose-50 to-pink-50">
+              <div className="p-6 bg-gradient-to-br from-yellow-50 to-pink-50">
                 <div className="flex flex-col md:flex-row gap-6 items-center">
                   <div className="flex-1">
-                    <h3 className="text-2xl font-bold text-gray-800 mb-4">Card Preview</h3>
+                    <h3 className="text-2xl font-bold text-pink-800 mb-4">Card Preview</h3>
                     {selectedBooking.templateId.templateImage ? (
                       <img
                         src={selectedBooking.templateId.templateImage}
@@ -657,29 +657,29 @@ export default function AdminBookingsPage() {
                         className="w-full max-w-md rounded-xl shadow-lg border-4 border-white"
                       />
                     ) : (
-                      <div className="w-full max-w-md h-64 bg-gray-200 rounded-xl flex items-center justify-center">
-                        <p className="text-gray-500">No preview available</p>
+                      <div className="w-full max-w-md h-64 bg-pink-200 rounded-xl flex items-center justify-center">
+                        <p className="text-pink-500">No preview available</p>
                       </div>
                     )}
                   </div>
                   <div className="flex-1 space-y-4">
                     <div className="bg-white/80 backdrop-blur-sm rounded-xl p-6 shadow-lg">
-                      <h4 className="text-xl font-semibold text-gray-800 mb-4">Template Details</h4>
+                      <h4 className="text-xl font-semibold text-pink-800 mb-4">Template Details</h4>
                       <div className="grid grid-cols-2 gap-4">
                         <div className="text-center">
-                          <p className="text-sm text-gray-600">Template</p>
+                          <p className="text-sm text-pink-600">Template</p>
                           <p className="font-semibold text-lg">{selectedBooking.templateId.name}</p>
                         </div>
                         <div className="text-center">
-                          <p className="text-sm text-gray-600">Theme</p>
+                          <p className="text-sm text-pink-600">Theme</p>
                           <p className="font-semibold text-lg">{selectedBooking.theme.cardTheme}</p>
                         </div>
                         <div className="text-center">
-                          <p className="text-sm text-gray-600">Language</p>
+                          <p className="text-sm text-pink-600">Language</p>
                           <p className="font-semibold text-lg">{selectedBooking.theme.language}</p>
                         </div>
                         <div className="text-center">
-                          <p className="text-sm text-gray-600">Color</p>
+                          <p className="text-sm text-pink-600">Color</p>
                           <div className="flex items-center justify-center gap-2">
                             <div
                               className="w-6 h-6 rounded-full border-2 border-white shadow-sm"
@@ -696,16 +696,16 @@ export default function AdminBookingsPage() {
 
               {/* Order Information Table */}
               <div className="p-6">
-                <h3 className="text-2xl font-bold text-gray-800 mb-6">Order Information</h3>
+                <h3 className="text-2xl font-bold text-pink-800 mb-6">Order Information</h3>
                 <div className="overflow-x-auto">
                   <table className="w-full bg-white rounded-xl shadow-lg overflow-hidden">
                     <tbody>
-                      <tr className="border-b border-gray-200">
-                        <td className="px-6 py-4 font-semibold bg-gray-50 w-1/3">Order ID</td>
+                      <tr className="border-b border-pink-200">
+                        <td className="px-6 py-4 font-semibold bg-pink-50 w-1/3">Order ID</td>
                         <td className="px-6 py-4">{selectedBooking.orderId}</td>
                       </tr>
-                      <tr className="border-b border-gray-200">
-                        <td className="px-6 py-4 font-semibold bg-gray-50">Payment Status</td>
+                      <tr className="border-b border-pink-200">
+                        <td className="px-6 py-4 font-semibold bg-pink-50">Payment Status</td>
                         <td className="px-6 py-4">
                           <span className={`inline-flex px-3 py-1 text-sm font-semibold rounded-full ${
                             selectedBooking.paymentStatus === 'paid'
@@ -718,23 +718,23 @@ export default function AdminBookingsPage() {
                           </span>
                         </td>
                       </tr>
-                      <tr className="border-b border-gray-200">
-                        <td className="px-6 py-4 font-semibold bg-gray-50">Amount</td>
+                      <tr className="border-b border-pink-200">
+                        <td className="px-6 py-4 font-semibold bg-pink-50">Amount</td>
                         <td className="px-6 py-4 text-lg font-bold text-green-600">₹{selectedBooking.price}</td>
                       </tr>
-                      <tr className="border-b border-gray-200">
-                        <td className="px-6 py-4 font-semibold bg-gray-50">Created Date</td>
+                      <tr className="border-b border-pink-200">
+                        <td className="px-6 py-4 font-semibold bg-pink-50">Created Date</td>
                         <td className="px-6 py-4">{new Date(selectedBooking.createdAt).toLocaleString('en-IN')}</td>
                       </tr>
                       {selectedBooking.razorpayOrderId && (
-                        <tr className="border-b border-gray-200">
-                          <td className="px-6 py-4 font-semibold bg-gray-50">Razorpay Order ID</td>
+                        <tr className="border-b border-pink-200">
+                          <td className="px-6 py-4 font-semibold bg-pink-50">Razorpay Order ID</td>
                           <td className="px-6 py-4 font-mono text-sm">{selectedBooking.razorpayOrderId}</td>
                         </tr>
                       )}
                       {selectedBooking.razorpayPaymentId && (
                         <tr>
-                          <td className="px-6 py-4 font-semibold bg-gray-50">Razorpay Payment ID</td>
+                          <td className="px-6 py-4 font-semibold bg-pink-50">Razorpay Payment ID</td>
                           <td className="px-6 py-4 font-mono text-sm">{selectedBooking.razorpayPaymentId}</td>
                         </tr>
                       )}
@@ -744,8 +744,8 @@ export default function AdminBookingsPage() {
               </div>
 
               {/* Couple Details */}
-              <div className="p-6 bg-gray-50">
-                <h3 className="text-2xl font-bold text-gray-800 mb-6">Couple Details</h3>
+              <div className="p-6 bg-pink-50">
+                <h3 className="text-2xl font-bold text-pink-800 mb-6">Couple Details</h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="bg-white rounded-xl shadow-lg p-6">
                     <h4 className="text-xl font-semibold text-blue-600 mb-4 flex items-center gap-2">
@@ -753,16 +753,16 @@ export default function AdminBookingsPage() {
                     </h4>
                     <table className="w-full">
                       <tbody>
-                        <tr className="border-b border-gray-100">
-                          <td className="py-2 font-medium text-gray-600">Name</td>
+                        <tr className="border-b border-pink-100">
+                          <td className="py-2 font-medium text-pink-600">Name</td>
                           <td className="py-2">{selectedBooking.groom.fullName}</td>
                         </tr>
-                        <tr className="border-b border-gray-100">
-                          <td className="py-2 font-medium text-gray-600">Father</td>
+                        <tr className="border-b border-pink-100">
+                          <td className="py-2 font-medium text-pink-600">Father</td>
                           <td className="py-2">{selectedBooking.groom.fatherName}</td>
                         </tr>
                         <tr>
-                          <td className="py-2 font-medium text-gray-600">Mother</td>
+                          <td className="py-2 font-medium text-pink-600">Mother</td>
                           <td className="py-2">{selectedBooking.groom.motherName}</td>
                         </tr>
                       </tbody>
@@ -788,16 +788,16 @@ export default function AdminBookingsPage() {
                     </h4>
                     <table className="w-full">
                       <tbody>
-                        <tr className="border-b border-gray-100">
-                          <td className="py-2 font-medium text-gray-600">Name</td>
+                        <tr className="border-b border-pink-100">
+                          <td className="py-2 font-medium text-pink-600">Name</td>
                           <td className="py-2">{selectedBooking.bride.fullName}</td>
                         </tr>
-                        <tr className="border-b border-gray-100">
-                          <td className="py-2 font-medium text-gray-600">Father</td>
+                        <tr className="border-b border-pink-100">
+                          <td className="py-2 font-medium text-pink-600">Father</td>
                           <td className="py-2">{selectedBooking.bride.fatherName}</td>
                         </tr>
                         <tr>
-                          <td className="py-2 font-medium text-gray-600">Mother</td>
+                          <td className="py-2 font-medium text-pink-600">Mother</td>
                           <td className="py-2">{selectedBooking.bride.motherName}</td>
                         </tr>
                       </tbody>
@@ -821,11 +821,11 @@ export default function AdminBookingsPage() {
 
               {/* Wedding Details */}
               <div className="p-6">
-                <h3 className="text-2xl font-bold text-gray-800 mb-6">Wedding Details</h3>
+                <h3 className="text-2xl font-bold text-pink-800 mb-6">Wedding Details</h3>
                 <div className="bg-white rounded-xl shadow-lg overflow-hidden">
                   <table className="w-full">
                     <tbody>
-                      <tr className="border-b border-gray-200 bg-gray-50">
+                      <tr className="border-b border-pink-200 bg-pink-50">
                         <td className="px-6 py-4 font-semibold w-1/3">Wedding Date</td>
                         <td className="px-6 py-4">{new Date(selectedBooking.wedding.date).toLocaleDateString('en-IN', {
                           weekday: 'long',
@@ -834,25 +834,25 @@ export default function AdminBookingsPage() {
                           day: 'numeric'
                         })}</td>
                       </tr>
-                      <tr className="border-b border-gray-200">
-                        <td className="px-6 py-4 font-semibold bg-gray-50">Time</td>
+                      <tr className="border-b border-pink-200">
+                        <td className="px-6 py-4 font-semibold bg-pink-50">Time</td>
                         <td className="px-6 py-4">{selectedBooking.wedding.time}</td>
                       </tr>
-                      <tr className="border-b border-gray-200 bg-gray-50">
+                      <tr className="border-b border-pink-200 bg-pink-50">
                         <td className="px-6 py-4 font-semibold">Venue</td>
                         <td className="px-6 py-4">{selectedBooking.wedding.venueName}</td>
                       </tr>
-                      <tr className="border-b border-gray-200">
-                        <td className="px-6 py-4 font-semibold bg-gray-50">Address</td>
+                      <tr className="border-b border-pink-200">
+                        <td className="px-6 py-4 font-semibold bg-pink-50">Address</td>
                         <td className="px-6 py-4">{selectedBooking.wedding.fullAddress}</td>
                       </tr>
-                      <tr className="border-b border-gray-200 bg-gray-50">
+                      <tr className="border-b border-pink-200 bg-pink-50">
                         <td className="px-6 py-4 font-semibold">City & State</td>
                         <td className="px-6 py-4">{selectedBooking.wedding.city}, {selectedBooking.wedding.state}</td>
                       </tr>
                       {selectedBooking.wedding.googleMapLink && (
                         <tr>
-                          <td className="px-6 py-4 font-semibold bg-gray-50">Map Link</td>
+                          <td className="px-6 py-4 font-semibold bg-pink-50">Map Link</td>
                           <td className="px-6 py-4">
                             <a
                               href={selectedBooking.wedding.googleMapLink}
@@ -872,57 +872,57 @@ export default function AdminBookingsPage() {
 
               {/* Events */}
               {selectedBooking.events.length > 0 && (
-                <div className="p-6 bg-gray-50">
-                  <h3 className="text-2xl font-bold text-gray-800 mb-6">Wedding Events</h3>
+                <div className="p-6 bg-pink-50">
+                  <h3 className="text-2xl font-bold text-pink-800 mb-6">Wedding Events</h3>
                   <div className="bg-white rounded-xl shadow-lg overflow-hidden">
                     <table className="w-full">
-                      <thead className="bg-gradient-to-r from-indigo-600 to-pink-600 text-white">
-                        <tr>
-                          <th className="px-6 py-4 text-left">Event Name</th>
-                          <th className="px-6 py-4 text-left">Date</th>
-                          <th className="px-6 py-4 text-left">Time</th>
-                          <th className="px-6 py-4 text-left">Venue</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        {selectedBooking.events.map((event, index) => (
-                          <tr key={index} className={`border-b border-gray-200 ${index % 2 === 0 ? 'bg-white' : 'bg-gray-50'}`}>
-                            <td className="px-6 py-4 font-semibold text-indigo-600">{event.eventName}</td>
-                            <td className="px-6 py-4">{new Date(event.eventDate).toLocaleDateString('en-IN')}</td>
-                            <td className="px-6 py-4">{event.eventTime}</td>
-                            <td className="px-6 py-4">{event.eventVenue}</td>
-                          </tr>
-                        ))}
-                      </tbody>
-                    </table>
+                  <thead className="bg-gradient-to-r from-pink-600 to-yellow-500 text-white">
+                    <tr>
+                      <th className="px-6 py-4 text-left">Event Name</th>
+                      <th className="px-6 py-4 text-left">Date</th>
+                      <th className="px-6 py-4 text-left">Time</th>
+                      <th className="px-6 py-4 text-left">Venue</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {selectedBooking.events.map((event, index) => (
+                      <tr key={index} className={`border-b border-yellow-200 ${index % 2 === 0 ? 'bg-white' : 'bg-yellow-50'}`}>
+                        <td className="px-6 py-4 font-semibold text-pink-600">{event.eventName}</td>
+                        <td className="px-6 py-4">{new Date(event.eventDate).toLocaleDateString('en-IN')}</td>
+                        <td className="px-6 py-4">{event.eventTime}</td>
+                        <td className="px-6 py-4">{event.eventVenue}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
                   </div>
                 </div>
               )}
 
               {/* Messages */}
               <div className="p-6">
-                <h3 className="text-2xl font-bold text-gray-800 mb-6">Messages & Invitations</h3>
+                <h3 className="text-2xl font-bold text-pink-800 mb-6">Messages & Invitations</h3>
                 <div className="space-y-4">
                   {selectedBooking.messages.familyInvitation && (
                     <div className="bg-white rounded-xl shadow-lg p-6">
-                      <h4 className="text-lg font-semibold text-gray-800 mb-3">Family Invitation</h4>
-                      <p className="text-gray-700 leading-relaxed bg-gray-50 p-4 rounded-lg italic whitespace-pre-wrap">
+                      <h4 className="text-lg font-semibold text-pink-800 mb-3">Family Invitation</h4>
+                      <p className="text-pink-700 leading-relaxed bg-pink-50 p-4 rounded-lg italic whitespace-pre-wrap">
                         &ldquo;{selectedBooking.messages.familyInvitation}&rdquo;
                       </p>
                     </div>
                   )}
                   {selectedBooking.messages.religiousQuote && (
                     <div className="bg-white rounded-xl shadow-lg p-6">
-                      <h4 className="text-lg font-semibold text-gray-800 mb-3">Religious Quote</h4>
-                      <p className="text-gray-700 leading-relaxed bg-gray-50 p-4 rounded-lg italic whitespace-pre-wrap">
+                      <h4 className="text-lg font-semibold text-pink-800 mb-3">Religious Quote</h4>
+                      <p className="text-pink-700 leading-relaxed bg-pink-50 p-4 rounded-lg italic whitespace-pre-wrap">
                         &ldquo;{selectedBooking.messages.religiousQuote}&rdquo;
                       </p>
                     </div>
                   )}
                   {selectedBooking.messages.specialMessage && (
                     <div className="bg-white rounded-xl shadow-lg p-6">
-                      <h4 className="text-lg font-semibold text-gray-800 mb-3">Special Message</h4>
-                      <p className="text-gray-700 leading-relaxed bg-gray-50 p-4 rounded-lg italic whitespace-pre-wrap">
+                      <h4 className="text-lg font-semibold text-pink-800 mb-3">Special Message</h4>
+                      <p className="text-pink-700 leading-relaxed bg-pink-50 p-4 rounded-lg italic whitespace-pre-wrap">
                         &ldquo;{selectedBooking.messages.specialMessage}&rdquo;
                       </p>
                     </div>
@@ -931,23 +931,23 @@ export default function AdminBookingsPage() {
               </div>
 
               {/* Contact Information */}
-              <div className="p-6 bg-gray-50">
-                <h3 className="text-2xl font-bold text-gray-800 mb-6">Contact Information</h3>
+              <div className="p-6 bg-pink-50">
+                <h3 className="text-2xl font-bold text-pink-800 mb-6">Contact Information</h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="bg-white rounded-xl shadow-lg p-6">
-                    <h4 className="text-lg font-semibold text-gray-800 mb-4">Aspirant Details</h4>
+                    <h4 className="text-lg font-semibold text-pink-800 mb-4">Aspirant Details</h4>
                     <table className="w-full">
                       <tbody>
-                        <tr className="border-b border-gray-100">
-                          <td className="py-2 font-medium text-gray-600">Name</td>
+                        <tr className="border-b border-pink-100">
+                          <td className="py-2 font-medium text-pink-600">Name</td>
                           <td className="py-2">{selectedBooking.aspirant.name}</td>
                         </tr>
-                        <tr className="border-b border-gray-100">
-                          <td className="py-2 font-medium text-gray-600">Relation</td>
+                        <tr className="border-b border-pink-100">
+                          <td className="py-2 font-medium text-pink-600">Relation</td>
                           <td className="py-2">{selectedBooking.aspirant.relation}</td>
                         </tr>
                         <tr>
-                          <td className="py-2 font-medium text-gray-600">Contact</td>
+                          <td className="py-2 font-medium text-pink-600">Contact</td>
                           <td className="py-2 font-mono">{selectedBooking.aspirant.contactNumber}</td>
                         </tr>
                       </tbody>
@@ -956,18 +956,18 @@ export default function AdminBookingsPage() {
 
                   {selectedBooking.userId && (
                     <div className="bg-white rounded-xl shadow-lg p-6">
-                      <h4 className="text-lg font-semibold text-gray-800 mb-4">User Details</h4>
+                      <h4 className="text-lg font-semibold text-pink-800 mb-4">User Details</h4>
                       <table className="w-full">
                         <tbody>
                           {selectedBooking.userId.name && (
-                            <tr className="border-b border-gray-100">
-                              <td className="py-2 font-medium text-gray-600">Name</td>
+                            <tr className="border-b border-pink-100">
+                              <td className="py-2 font-medium text-pink-600">Name</td>
                               <td className="py-2">{selectedBooking.userId.name}</td>
                             </tr>
                           )}
                           {selectedBooking.userId.mobile && (
                             <tr>
-                              <td className="py-2 font-medium text-gray-600">Mobile</td>
+                              <td className="py-2 font-medium text-pink-600">Mobile</td>
                               <td className="py-2 font-mono">{selectedBooking.userId.mobile}</td>
                             </tr>
                           )}

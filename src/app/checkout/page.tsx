@@ -203,7 +203,7 @@ export default function Checkout() {
     return (
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
-          <p className="text-gray-500 text-lg mb-4">Your cart is empty.</p>
+          <p className="text-pink-500 text-lg mb-4">Your cart is empty.</p>
           <Link
             href="/cards"
             className="bg-indigo-600 text-white px-6 py-3 rounded-md hover:bg-indigo-700"
@@ -216,12 +216,12 @@ export default function Checkout() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-pink-50">
       {/* Header */}
       <header className="bg-white shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-6">
-            <h1 className="text-2xl font-bold text-gray-900">Checkout</h1>
+            <h1 className="text-2xl font-bold text-pink-900">Checkout</h1>
             <Link
               href="/cart"
               className="text-indigo-600 hover:text-indigo-900"
@@ -236,10 +236,10 @@ export default function Checkout() {
         <form onSubmit={handleSubmit} className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {/* Shipping Information */}
           <div className="bg-white p-6 rounded-lg shadow-md">
-            <h2 className="text-lg font-semibold text-gray-900 mb-4">Shipping Information</h2>
+            <h2 className="text-lg font-semibold text-pink-900 mb-4">Shipping Information</h2>
             <div className="space-y-4">
               <div>
-                <label htmlFor="name" className="block text-sm font-medium text-gray-700">
+                <label htmlFor="name" className="block text-sm font-medium text-pink-700">
                   Full Name
                 </label>
                 <input
@@ -249,11 +249,11 @@ export default function Checkout() {
                   required
                   value={shippingAddress.name}
                   onChange={handleInputChange}
-                  className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                  className="mt-1 block w-full border-pink-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                 />
               </div>
               <div>
-                <label htmlFor="address" className="block text-sm font-medium text-gray-700">
+                <label htmlFor="address" className="block text-sm font-medium text-pink-700">
                   Address
                 </label>
                 <input
@@ -263,12 +263,12 @@ export default function Checkout() {
                   required
                   value={shippingAddress.address}
                   onChange={handleInputChange}
-                  className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                  className="mt-1 block w-full border-pink-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                 />
               </div>
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <label htmlFor="city" className="block text-sm font-medium text-gray-700">
+                  <label htmlFor="city" className="block text-sm font-medium text-pink-700">
                     City
                   </label>
                   <input
@@ -278,11 +278,11 @@ export default function Checkout() {
                     required
                     value={shippingAddress.city}
                     onChange={handleInputChange}
-                    className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                    className="mt-1 block w-full border-pink-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                   />
                 </div>
                 <div>
-                  <label htmlFor="state" className="block text-sm font-medium text-gray-700">
+                  <label htmlFor="state" className="block text-sm font-medium text-pink-700">
                     State
                   </label>
                   <input
@@ -292,13 +292,13 @@ export default function Checkout() {
                     required
                     value={shippingAddress.state}
                     onChange={handleInputChange}
-                    className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                    className="mt-1 block w-full border-pink-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                   />
                 </div>
               </div>
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <label htmlFor="zip" className="block text-sm font-medium text-gray-700">
+                  <label htmlFor="zip" className="block text-sm font-medium text-pink-700">
                     ZIP Code
                   </label>
                   <input
@@ -308,11 +308,11 @@ export default function Checkout() {
                     required
                     value={shippingAddress.zip}
                     onChange={handleInputChange}
-                    className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                    className="mt-1 block w-full border-pink-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                   />
                 </div>
                 <div>
-                  <label htmlFor="phone" className="block text-sm font-medium text-gray-700">
+                  <label htmlFor="phone" className="block text-sm font-medium text-pink-700">
                     Phone
                   </label>
                   <input
@@ -322,7 +322,7 @@ export default function Checkout() {
                     required
                     value={shippingAddress.phone}
                     onChange={handleInputChange}
-                    className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                    className="mt-1 block w-full border-pink-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                   />
                 </div>
               </div>
@@ -331,7 +331,7 @@ export default function Checkout() {
 
           {/* Order Summary */}
           <div className="bg-white p-6 rounded-lg shadow-md">
-            <h2 className="text-lg font-semibold text-gray-900 mb-4">Order Summary</h2>
+            <h2 className="text-lg font-semibold text-pink-900 mb-4">Order Summary</h2>
 
             {/* Cart Items */}
             <div className="space-y-4 mb-4">
@@ -343,12 +343,12 @@ export default function Checkout() {
                     className="w-16 h-16 object-cover rounded-md"
                   />
                   <div className="flex-1">
-                    <h3 className="text-sm font-medium text-gray-900">
+                    <h3 className="text-sm font-medium text-pink-900">
                       {item.customization.cardDesign.name}
                     </h3>
-                    <p className="text-sm text-gray-600">Qty: {item.quantity}</p>
+                    <p className="text-sm text-pink-600">Qty: {item.quantity}</p>
                   </div>
-                  <p className="text-sm font-medium text-gray-900">₹{item.totalPrice}</p>
+                  <p className="text-sm font-medium text-pink-900">₹{item.totalPrice}</p>
                 </div>
               ))}
             </div>

@@ -145,7 +145,7 @@ export default function Templates() {
       <div className="flex justify-end items-center px-10 pt-4">
         <div className="flex items-center gap-2 text-sm">
           <span className={`w-2 h-2 rounded-full ${isRealtimeConnected ? 'bg-green-500' : 'bg-red-500'}`}></span>
-          <span className="text-gray-600">
+          <span className="text-pink-600">
             {isRealtimeConnected ? 'Live updates enabled' : 'Connecting...'}
           </span>
         </div>
@@ -171,7 +171,7 @@ export default function Templates() {
                 }}
               />
               <div className="p-4">
-                <h3 className="text-lg font-semibold text-gray-800">{template.title}</h3>
+                <h3 className="text-lg font-semibold text-pink-800">{template.title}</h3>
                 <p className="text-xl font-bold text-indigo-600 mt-2">₹{template.price}</p>
               </div>
             </div>
@@ -181,7 +181,7 @@ export default function Templates() {
 
       {templates.length === 0 && !loading && (
         <div className="text-center py-12">
-          <p className="text-gray-500 text-lg">No templates available at the moment.</p>
+          <p className="text-pink-500 text-lg">No templates available at the moment.</p>
         </div>
       )}
     </div>

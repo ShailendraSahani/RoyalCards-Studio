@@ -65,8 +65,29 @@ export async function POST(request: NextRequest) {
     });
 
     return NextResponse.json(card, { status: 201 });
-  } catch (error) {
+  } catch (error: any) {
     console.error('Error creating card:', error);
+    
+    // Handle Mongoose validation errors specifically
+    if (error.name === 'ValidationError') {
+      const validationErrors: Record<string, string> = {};
+      for (const [key, value] of Object.entries(error.errors)) {
+        validationErrors[key] = (value as any).message;
+      }
+      console.error('Validation errors:', validationErrors);
+      return NextResponse.json({ 
+        message: 'Validation failed', 
+        errors: validationErrors 
+      }, { status: 400 });
+    }
+    
+    // Handle other known error types
+    if (error.name === 'CastError') {
+      return NextResponse.json({ 
+        message: `Invalid ${error.path}: ${error.value}` 
+      }, { status: 400 });
+    }
+    
     return NextResponse.json({ message: 'Internal server error' }, { status: 500 });
   }
 }

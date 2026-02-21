@@ -16,8 +16,40 @@ const UserSchema = new mongoose.Schema({
   },
   role: {
     type: String,
-    enum: ['user', 'admin'],
+    enum: ['user', 'admin', 'seller'],
     default: 'user',
+  },
+  // Seller specific fields
+  isSeller: {
+    type: Boolean,
+    default: false,
+  },
+  sellerRequestStatus: {
+    type: String,
+    enum: ['none', 'pending', 'approved', 'rejected'],
+    default: 'none',
+  },
+  shopName: {
+    type: String,
+    default: '',
+  },
+  shopDescription: {
+    type: String,
+    default: '',
+  },
+  businessAddress: {
+    type: String,
+    default: '',
+  },
+  gstNumber: {
+    type: String,
+    default: '',
+  },
+  sellerRequestedAt: {
+    type: Date,
+  },
+  sellerApprovedAt: {
+    type: Date,
   },
   createdAt: {
     type: Date,

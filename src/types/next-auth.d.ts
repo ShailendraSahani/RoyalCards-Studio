@@ -8,6 +8,8 @@ declare module 'next-auth' {
       email?: string | null;
       image?: string | null;
       role: string;
+      isSeller?: boolean;
+      sellerRequestStatus?: string;
     };
   }
 
@@ -17,11 +19,15 @@ declare module 'next-auth' {
     email?: string | null;
     image?: string | null;
     role: string;
+    isSeller?: boolean;
+    sellerRequestStatus?: string;
   }
 }
 
 declare module 'next-auth/jwt' {
   interface JWT {
     role: string;
+    isSeller?: boolean;
+    sellerRequestStatus?: string;
   }
 }

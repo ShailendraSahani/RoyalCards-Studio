@@ -1,15 +1,15 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { getServerSession } from 'next-auth';
+import { authOptions } from '@/lib/auth';
 import { dbConnect } from '@/lib/mongodb';
 import Cart from '@/models/Cart';
-import CardDesign from '@/models/CardDesign';
 
 export async function PUT(
   request: NextRequest,
   { params }: { params: Promise<{ id: string }> }
 ) {
   try {
-    const session = await getServerSession();
+    const session = await getServerSession(authOptions);
 
     if (!session?.user?.id) {
       return NextResponse.json(
@@ -47,7 +47,8 @@ export async function PUT(
 
     // Update quantity and total price
     cartItem.quantity = quantity;
-    cartItem.totalPrice = cartItem.customization.cardDesign.price * quantity;
+    const cardDesignPrice = (cartItem.cardDesign as { price: number }).price;
+    cartItem.totalPrice = cardDesignPrice * quantity;
 
     await cartItem.save();
 
@@ -66,7 +67,7 @@ export async function DELETE(
   { params }: { params: Promise<{ id: string }> }
 ) {
   try {
-    const session = await getServerSession();
+    const session = await getServerSession(authOptions);
 
     if (!session?.user?.id) {
       return NextResponse.json(

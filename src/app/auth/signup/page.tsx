@@ -53,7 +53,7 @@ export default function SignUp() {
         {/* Heading */}
         <div className="text-center mb-6">
           <h2 className="text-3xl font-bold text-pink-700">Create Your Account 💍</h2>
-          <p className="text-gray-600 mt-1">Start booking beautiful marriage cards</p>
+          <p className="text-pink-600 mt-1">Start booking beautiful marriage cards</p>
         </div>
 
         {/* Form */}
@@ -61,12 +61,12 @@ export default function SignUp() {
 
           {/* Full Name */}
           <div>
-            <label className="block text-sm font-semibold text-gray-700 mb-1">Full Name</label>
+            <label className="block text-sm font-semibold text-pink-700 mb-1">Full Name</label>
             <input
               type="text"
               required
               placeholder="Enter your full name"
-              className="w-full px-4 py-3 bg-white border-2 border-gray-400 rounded-lg 
+              className="w-full px-4 py-3 bg-white border-2 border-pink-400 rounded-lg 
               focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-pink-500 
               placeholder-gray-500 text-black shadow-sm"
               value={name}
@@ -76,12 +76,12 @@ export default function SignUp() {
 
           {/* Mobile */}
           <div>
-            <label className="block text-sm font-semibold text-gray-700 mb-1">Mobile Number</label>
+            <label className="block text-sm font-semibold text-pink-700 mb-1">Mobile Number</label>
             <input
               type="tel"
               required
               placeholder="Enter 10 digit mobile number"
-              className="w-full px-4 py-3 bg-white border-2 border-gray-400 rounded-lg 
+              className="w-full px-4 py-3 bg-white border-2 border-pink-400 rounded-lg 
               focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-pink-500 
               placeholder-gray-500 text-black shadow-sm"
               value={mobile}
@@ -91,12 +91,12 @@ export default function SignUp() {
 
           {/* Password */}
           <div>
-            <label className="block text-sm font-semibold text-gray-700 mb-1">Password</label>
+            <label className="block text-sm font-semibold text-pink-700 mb-1">Password</label>
             <input
               type="password"
               required
               placeholder="Create password"
-              className="w-full px-4 py-3 bg-white border-2 border-gray-400 rounded-lg 
+              className="w-full px-4 py-3 bg-white border-2 border-pink-400 rounded-lg 
               focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-pink-500 
               placeholder-gray-500 text-black shadow-sm"
               value={password}
@@ -106,12 +106,12 @@ export default function SignUp() {
 
           {/* Confirm Password */}
           <div>
-            <label className="block text-sm font-semibold text-gray-700 mb-1">Confirm Password</label>
+            <label className="block text-sm font-semibold text-pink-700 mb-1">Confirm Password</label>
             <input
               type="password"
               required
               placeholder="Confirm password"
-              className="w-full px-4 py-3 bg-white border-2 border-gray-400 rounded-lg 
+              className="w-full px-4 py-3 bg-white border-2 border-pink-400 rounded-lg 
               focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-pink-500 
               placeholder-gray-500 text-black shadow-sm"
               value={confirmPassword}
@@ -137,7 +137,7 @@ export default function SignUp() {
           </button>
 
           {/* Login Link */}
-          <p className="text-center text-sm text-gray-600">
+          <p className="text-center text-sm text-pink-600">
             Already have an account?{' '}
             <Link href="/auth/signin" className="text-pink-600 font-semibold hover:underline">
               Sign In

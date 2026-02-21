@@ -58,10 +58,10 @@ export default function ContactPage() {
           transition={{ duration: 0.8 }}
           className="text-center mb-12"
         >
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-800 mb-4">
+          <h1 className="text-4xl md:text-5xl font-bold text-pink-800 mb-4">
             Contact Us
           </h1>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          <p className="text-xl text-pink-600 max-w-2xl mx-auto">
             Get in touch with our team. We're here to help make your wedding perfect.
           </p>
         </motion.div>
@@ -74,7 +74,7 @@ export default function ContactPage() {
             transition={{ duration: 0.8 }}
             className="bg-white rounded-xl shadow-lg p-8"
           >
-            <h2 className="text-2xl font-bold text-gray-800 mb-6">Send us a message</h2>
+            <h2 className="text-2xl font-bold text-pink-800 mb-6">Send us a message</h2>
 
             {submitted ? (
               <motion.div
@@ -84,12 +84,12 @@ export default function ContactPage() {
               >
                 <div className="text-6xl mb-4">✅</div>
                 <h3 className="text-xl font-semibold text-green-600 mb-2">Message Sent!</h3>
-                <p className="text-gray-600">We'll get back to you within 24 hours.</p>
+                <p className="text-pink-600">We'll get back to you within 24 hours.</p>
               </motion.div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label htmlFor="name" className="block text-sm font-medium text-pink-700 mb-2">
                     Full Name
                   </label>
                   <input
@@ -99,13 +99,13 @@ export default function ContactPage() {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-500 focus:border-transparent"
+                    className="w-full px-4 py-3 border border-pink-300 rounded-lg focus:ring-2 focus:ring-rose-500 focus:border-transparent"
                     placeholder="Your full name"
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label htmlFor="email" className="block text-sm font-medium text-pink-700 mb-2">
                     Email Address
                   </label>
                   <input
@@ -115,13 +115,13 @@ export default function ContactPage() {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-500 focus:border-transparent"
+                    className="w-full px-4 py-3 border border-pink-300 rounded-lg focus:ring-2 focus:ring-rose-500 focus:border-transparent"
                     placeholder="your@email.com"
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label htmlFor="subject" className="block text-sm font-medium text-pink-700 mb-2">
                     Subject
                   </label>
                   <select
@@ -130,7 +130,7 @@ export default function ContactPage() {
                     value={formData.subject}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-500 focus:border-transparent"
+                    className="w-full px-4 py-3 border border-pink-300 rounded-lg focus:ring-2 focus:ring-rose-500 focus:border-transparent"
                   >
                     <option value="">Select a subject</option>
                     <option value="order">Order Support</option>
@@ -142,7 +142,7 @@ export default function ContactPage() {
                 </div>
 
                 <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label htmlFor="message" className="block text-sm font-medium text-pink-700 mb-2">
                     Message
                   </label>
                   <textarea
@@ -152,7 +152,7 @@ export default function ContactPage() {
                     onChange={handleChange}
                     required
                     rows={6}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-500 focus:border-transparent"
+                    className="w-full px-4 py-3 border border-pink-300 rounded-lg focus:ring-2 focus:ring-rose-500 focus:border-transparent"
                     placeholder="Tell us how we can help you&hellip;"
                   />
                 </div>
@@ -177,15 +177,15 @@ export default function ContactPage() {
           >
             {/* Contact Details */}
             <div className="bg-white rounded-xl shadow-lg p-8">
-              <h3 className="text-2xl font-bold text-gray-800 mb-6">Get in Touch</h3>
+              <h3 className="text-2xl font-bold text-pink-800 mb-6">Get in Touch</h3>
               <div className="space-y-4">
                 <div className="flex items-center gap-4">
                   <div className="w-12 h-12 bg-rose-100 rounded-full flex items-center justify-center">
                     <span className="text-2xl">📧</span>
                   </div>
                   <div>
-                    <h4 className="font-semibold text-gray-800">Email</h4>
-                    <p className="text-gray-600">support@shaadicards.com</p>
+                    <h4 className="font-semibold text-pink-800">Email</h4>
+                    <p className="text-pink-600">shailendrasahani273209@gmail.com</p>
                   </div>
                 </div>
 
@@ -194,8 +194,8 @@ export default function ContactPage() {
                     <span className="text-2xl">📞</span>
                   </div>
                   <div>
-                    <h4 className="font-semibold text-gray-800">Phone</h4>
-                    <p className="text-gray-600">+91 98765 43210</p>
+                    <h4 className="font-semibold text-pink-800">Phone</h4>
+                    <p className="text-pink-600">+91 73887 11487</p>
                   </div>
                 </div>
 
@@ -204,8 +204,8 @@ export default function ContactPage() {
                     <span className="text-2xl">📍</span>
                   </div>
                   <div>
-                    <h4 className="font-semibold text-gray-800">Address</h4>
-                    <p className="text-gray-600">123 Wedding Street<br />Mumbai, Maharashtra 400001</p>
+                    <h4 className="font-semibold text-pink-800">Address</h4>
+                    <p className="text-pink-600">123 Wedding Street<br />Mumbai, Maharashtra 400001</p>
                   </div>
                 </div>
               </div>
@@ -213,18 +213,18 @@ export default function ContactPage() {
 
             {/* Business Hours */}
             <div className="bg-white rounded-xl shadow-lg p-8">
-              <h3 className="text-2xl font-bold text-gray-800 mb-6">Business Hours</h3>
+              <h3 className="text-2xl font-bold text-pink-800 mb-6">Business Hours</h3>
               <div className="space-y-2">
                 <div className="flex justify-between">
-                  <span className="text-gray-600">Monday - Friday</span>
+                  <span className="text-pink-600">Monday - Friday</span>
                   <span className="font-semibold">9:00 AM - 8:00 PM</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-gray-600">Saturday</span>
+                  <span className="text-pink-600">Saturday</span>
                   <span className="font-semibold">10:00 AM - 6:00 PM</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-gray-600">Sunday</span>
+                  <span className="text-pink-600">Sunday</span>
                   <span className="font-semibold">Closed</span>
                 </div>
               </div>
@@ -232,7 +232,7 @@ export default function ContactPage() {
 
             {/* Social Links */}
             <div className="bg-white rounded-xl shadow-lg p-8">
-              <h3 className="text-2xl font-bold text-gray-800 mb-6">Follow Us</h3>
+              <h3 className="text-2xl font-bold text-pink-800 mb-6">Follow Us</h3>
               <div className="flex gap-4">
                 {['📘', '📷', '🐦', '💼'].map((icon, i) => (
                   <a
