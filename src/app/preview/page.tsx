@@ -1,8 +1,9 @@
 "use client";
 import { useSearchParams } from "next/navigation";
 import Image from "next/image";
+import { Suspense } from "react";
 
-export default function WeddingTemplate1() {
+function WeddingTemplateContent() {
   const params = useSearchParams();
 
   const bride = params.get("bride") || "राधिका";
@@ -22,7 +23,7 @@ export default function WeddingTemplate1() {
         </div>
 
         {/* HEADING */}
-        <h1 className="card-title">॥ श्री गणेशाय नमः ॥</h1>
+        <h1 className="card-title">॥ श्री गणेशाय नमः ┃</h1>
         <h2 className="card-subtitle">शुभ विवाह निमंत्रण</h2>
 
         {/* MIDDLE NAMES */}
@@ -57,5 +58,24 @@ export default function WeddingTemplate1() {
 
       </div>
     </div>
+  );
+}
+
+function PreviewLoading() {
+  return (
+    <div className="flex items-center justify-center min-h-screen">
+      <div className="text-center">
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto mb-4"></div>
+        <p className="text-gray-600">Loading preview...</p>
+      </div>
+    </div>
+  );
+}
+
+export default function WeddingTemplate1() {
+  return (
+    <Suspense fallback={<PreviewLoading />}>
+      <WeddingTemplateContent />
+    </Suspense>
   );
 }
