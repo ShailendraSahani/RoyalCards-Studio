@@ -143,7 +143,7 @@ export default function ConfirmationPage() {
     return (
       <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-rose-50 to-pink-100">
         <div className="text-center">
-          <h2 className="text-2xl font-bold text-gray-800 mb-4">Booking Not Found</h2>
+          <h2 className="text-2xl font-bold text-pink-800 mb-4">Booking Not Found</h2>
           <Link
             href="/cards"
             className="bg-rose-500 text-white px-6 py-3 rounded-lg hover:bg-rose-600"
@@ -185,7 +185,7 @@ export default function ConfirmationPage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6 }}
-              className="text-xl text-gray-600"
+              className="text-xl text-pink-600"
             >
               Your card has been created successfully
             </motion.p>
@@ -213,27 +213,27 @@ export default function ConfirmationPage() {
           >
             {/* Booking Summary */}
             <div className="bg-white rounded-2xl shadow-xl p-8">
-              <h2 className="text-2xl font-bold text-gray-800 mb-6">Booking Details</h2>
+              <h2 className="text-2xl font-bold text-pink-800 mb-6">Booking Details</h2>
 
               <div className="space-y-4">
-                <div className="flex justify-between items-center py-2 border-b border-gray-100">
-                  <span className="text-gray-600">Order ID</span>
-                  <span className="font-mono font-semibold text-gray-800">{booking.orderId}</span>
+                <div className="flex justify-between items-center py-2 border-b border-pink-100">
+                  <span className="text-pink-600">Order ID</span>
+                  <span className="font-mono font-semibold text-pink-800">{booking.orderId}</span>
                 </div>
 
-                <div className="flex justify-between items-center py-2 border-b border-gray-100">
-                  <span className="text-gray-600">Recipient</span>
-                  <span className="font-semibold text-gray-800">{booking.recipientName}</span>
+                <div className="flex justify-between items-center py-2 border-b border-pink-100">
+                  <span className="text-pink-600">Recipient</span>
+                  <span className="font-semibold text-pink-800">{booking.recipientName}</span>
                 </div>
 
-                <div className="flex justify-between items-center py-2 border-b border-gray-100">
-                  <span className="text-gray-600">Quantity</span>
-                  <span className="font-semibold text-gray-800">{booking.quantity}</span>
+                <div className="flex justify-between items-center py-2 border-b border-pink-100">
+                  <span className="text-pink-600">Quantity</span>
+                  <span className="font-semibold text-pink-800">{booking.quantity}</span>
                 </div>
 
-                <div className="flex justify-between items-center py-2 border-b border-gray-100">
-                  <span className="text-gray-600">Delivery Date</span>
-                  <span className="font-semibold text-gray-800">
+                <div className="flex justify-between items-center py-2 border-b border-pink-100">
+                  <span className="text-pink-600">Delivery Date</span>
+                  <span className="font-semibold text-pink-800">
                     {new Date(booking.deliveryDate).toLocaleDateString('en-IN', {
                       weekday: 'long',
                       year: 'numeric',
@@ -243,18 +243,18 @@ export default function ConfirmationPage() {
                   </span>
                 </div>
 
-                <div className="flex justify-between items-center py-2 border-b border-gray-100">
-                  <span className="text-gray-600">Template</span>
-                  <span className="font-semibold text-gray-800">{card.name}</span>
+                <div className="flex justify-between items-center py-2 border-b border-pink-100">
+                  <span className="text-pink-600">Template</span>
+                  <span className="font-semibold text-pink-800">{card.name}</span>
                 </div>
 
-                <div className="flex justify-between items-center py-2 border-b border-gray-100">
-                  <span className="text-gray-600">Amount Paid</span>
+                <div className="flex justify-between items-center py-2 border-b border-pink-100">
+                  <span className="text-pink-600">Amount Paid</span>
                   <span className="font-bold text-green-600 text-lg">₹{booking.price}</span>
                 </div>
 
                 <div className="flex justify-between items-center py-2">
-                  <span className="text-gray-600">Status</span>
+                  <span className="text-pink-600">Status</span>
                   <span className="px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm font-medium">
                     {booking.status}
                   </span>
@@ -264,7 +264,7 @@ export default function ConfirmationPage() {
 
             {/* Action Buttons */}
             <div className="bg-white rounded-2xl shadow-xl p-8">
-              <h3 className="text-xl font-bold text-gray-800 mb-6">Your Card</h3>
+              <h3 className="text-xl font-bold text-pink-800 mb-6">Your Card</h3>
 
               <div className="space-y-4">
                 {booking.pdfUrl ? (
@@ -324,7 +324,7 @@ export default function ConfirmationPage() {
             <div className="flex space-x-4">
               <Link
                 href="/dashboard"
-                className="flex-1 bg-gray-600 text-white py-3 rounded-lg hover:bg-gray-700 flex items-center justify-center space-x-2"
+                className="flex-1 bg-pink-600 text-white py-3 rounded-lg hover:bg-pink-700 flex items-center justify-center space-x-2"
               >
                 <Home size={20} />
                 <span>Go to Dashboard</span>
@@ -347,29 +347,29 @@ export default function ConfirmationPage() {
           transition={{ delay: 1.2 }}
           className="mt-12 bg-white rounded-2xl shadow-xl p-8"
         >
-          <h3 className="text-2xl font-bold text-gray-800 mb-6 text-center">What's Next?</h3>
+          <h3 className="text-2xl font-bold text-pink-800 mb-6 text-center">What's Next?</h3>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div className="text-center">
               <div className="text-4xl mb-3">📄</div>
-              <h4 className="font-semibold text-gray-800 mb-2">Download & Print</h4>
-              <p className="text-sm text-gray-600">
+              <h4 className="font-semibold text-pink-800 mb-2">Download & Print</h4>
+              <p className="text-sm text-pink-600">
                 Download your PDF and take it to any printing shop for high-quality prints
               </p>
             </div>
 
             <div className="text-center">
               <div className="text-4xl mb-3">🌐</div>
-              <h4 className="font-semibold text-gray-800 mb-2">Share Online</h4>
-              <p className="text-sm text-gray-600">
+              <h4 className="font-semibold text-pink-800 mb-2">Share Online</h4>
+              <p className="text-sm text-pink-600">
                 Share your unique invitation link on social media or via WhatsApp
               </p>
             </div>
 
             <div className="text-center">
               <div className="text-4xl mb-3">📱</div>
-              <h4 className="font-semibold text-gray-800 mb-2">Track Responses</h4>
-              <p className="text-sm text-gray-600">
+              <h4 className="font-semibold text-pink-800 mb-2">Track Responses</h4>
+              <p className="text-sm text-pink-600">
                 Check your dashboard to see who has viewed your invitation
               </p>
             </div>
@@ -381,12 +381,12 @@ export default function ConfirmationPage() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.4 }}
-          className="mt-12 text-center text-gray-600"
+          className="mt-12 text-center text-pink-600"
         >
           <p className="text-sm">
             Need help? Contact our support team at{' '}
-            <a href="mailto:support@shaadicards.com" className="text-indigo-600 hover:underline">
-              support@shaadicards.com
+            <a href="mailto:shailendrasahani273209@gmail.com" className="text-indigo-600 hover:underline">
+              shailendrasahani273209@gmail.com
             </a>
           </p>
           <p className="text-xs mt-2">

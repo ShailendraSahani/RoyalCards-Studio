@@ -11,8 +11,9 @@ const CardDesignSchema = new mongoose.Schema({
   },
   category: {
     type: String,
-    enum: ['traditional', 'modern', 'elegant', 'fun', 'custom'],
+    required: true,
     default: 'traditional',
+    enum: ['traditional', 'modern', 'elegant', 'fun', 'royal', 'floral', 'birthday', 'party', 'marriage', 'tilak', 'engagement', 'babyShower', 'anniversary', 'reception', 'haldi', 'mehendi', 'sangeet', 'roka', 'festival', 'other'],
   },
   templateImage: {
     type: String, // URL or base64 of template image

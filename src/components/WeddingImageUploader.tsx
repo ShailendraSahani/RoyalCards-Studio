@@ -34,7 +34,7 @@ export default function WeddingImageUploader({ onUpload }: WeddingImageUploaderP
         <div className="text-pink-600 font-semibold">
           {uploading ? "Uploading..." : "Click to Upload Wedding Card Image"}
         </div>
-        <div className="text-sm text-gray-500 mt-1">
+        <div className="text-sm text-pink-500 mt-1">
           Supports JPG, PNG, GIF (Max 5MB)
         </div>
       </label>

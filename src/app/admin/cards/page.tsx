@@ -112,11 +112,11 @@ export default function AdminWeddingCards() {
           <motion.div key={card._id} whileHover={{ scale: 1.05 }}
             className="bg-white rounded-xl shadow-2xl border border-pink-200 overflow-hidden">
 
-            <img src={card.templateImage} className="h-44 w-full object-cover" />
+            <img src={card.templateImage} className="w-full h-auto" style={{ minHeight: '180px', maxHeight: '300px' }} />
 
             <div className="p-4">
               <h3 className="font-bold text-lg text-pink-700">{card.name}</h3>
-              <p className="text-sm text-gray-500">{card.description}</p>
+              <p className="text-sm text-pink-500">{card.description}</p>
 
               <div className="flex justify-between mt-2">
                 <span className="font-bold text-pink-600">₹{card.price}</span>
@@ -185,11 +185,26 @@ export default function AdminWeddingCards() {
                 onChange={e => setForm({ ...form, category: e.target.value })}
                 className="w-full border p-2 rounded"
               >
-                <option value="traditional">Traditional Hindu</option>
-                <option value="royal">Royal Gold Theme</option>
-                <option value="modern">Modern Wedding</option>
-                <option value="muslim">Muslim Wedding</option>
-                <option value="christian">Christian Wedding</option>
+                <option value="traditional">Traditional</option>
+                <option value="modern">Modern</option>
+                <option value="elegant">Elegant</option>
+                <option value="fun">Fun</option>
+                <option value="royal">Royal</option>
+                <option value="floral">Floral</option>
+                <option value="birthday">Birthday</option>
+                <option value="party">Party</option>
+                <option value="marriage">Marriage</option>
+                <option value="tilak">Tilak</option>
+                <option value="engagement">Engagement</option>
+                <option value="babyShower">Baby Shower</option>
+                <option value="anniversary">Anniversary</option>
+                <option value="reception">Reception</option>
+                <option value="haldi">Haldi</option>
+                <option value="mehendi">Mehendi</option>
+                <option value="sangeet">Sangeet</option>
+                <option value="roka">Roka</option>
+                <option value="festival">Festival</option>
+                <option value="other">Other</option>
               </select>
 
               <label className="flex items-center gap-2 text-pink-700 font-semibold">
@@ -201,7 +216,7 @@ export default function AdminWeddingCards() {
                 <button className="bg-pink-600 text-white px-4 py-2 rounded flex-1">
                   {editing ? "Update" : "Add"} Card
                 </button>
-                <button type="button" onClick={closeModal} className="bg-gray-500 text-white px-4 py-2 rounded flex-1">
+                <button type="button" onClick={closeModal} className="bg-pink-500 text-white px-4 py-2 rounded flex-1">
                   Cancel
                 </button>
               </div>

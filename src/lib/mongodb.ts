@@ -1,9 +1,9 @@
-import { MongoClient } from 'mongodb';
+import { MongoClient, Db } from 'mongodb';
 
 const uri = process.env.MONGODB_URI!;
 const options = {};
 
-let client;
+let client: MongoClient;
 let clientPromise: Promise<MongoClient>;
 
 if (process.env.NODE_ENV === 'development') {
@@ -23,6 +23,12 @@ if (process.env.NODE_ENV === 'development') {
 // Export a module-scoped MongoClient promise. By doing this in a
 // separate module, the client can be shared across functions.
 export default clientPromise;
+
+// Connect to database function that returns the MongoClient
+export async function connectToDatabase(): Promise<MongoClient> {
+  const client = await clientPromise;
+  return client;
+}
 
 // Also export dbConnect for mongoose
 import mongoose from 'mongoose';

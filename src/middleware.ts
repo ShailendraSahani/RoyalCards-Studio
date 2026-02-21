@@ -21,7 +21,6 @@ export default withAuth(
 
         // Require authentication for protected routes
         if (pathname.startsWith('/dashboard') ||
-            pathname.startsWith('/customize') ||
             pathname.startsWith('/cart') ||
             pathname.startsWith('/checkout') ||
             pathname.startsWith('/book') ||
@@ -43,7 +42,6 @@ export default withAuth(
 export const config = {
   matcher: [
     '/dashboard/:path*',
-    '/customize/:path*',
     '/cart/:path*',
     '/checkout/:path*',
     '/book/:path*',

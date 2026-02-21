@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
+import { useRealtime } from '@/hooks/useRealtime';
 
 interface Booking {
   _id: string;
@@ -23,40 +24,61 @@ export default function Dashboard() {
   const [orders, setOrders] = useState<Booking[]>([]);
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
   const [lastUpdated, setLastUpdated] = useState(new Date());
+
+  // Use realtime hook for real-time updates (replaces polling)
+  const { isConnected, lastMessage } = useRealtime({
+    endpoint: '/api/realtime',
+    enabled: !!session,
+  });
 
   useEffect(() => {
     if (status === 'loading') return;
     if (!session) router.push('/auth/signin');
   }, [session, status, router]);
 
+  // Listen for real-time updates
+  useEffect(() => {
+    if (lastMessage && lastMessage.type === 'update') {
+      console.log('Real-time update received:', lastMessage);
+      fetchData();
+    }
+  }, [lastMessage]);
+
   useEffect(() => {
     if (session) {
       fetchData();
-      const interval = setInterval(fetchData, 10000); // Fetch every 10 seconds
-      return () => clearInterval(interval); // Cleanup on unmount
     }
   }, [session]);
 
   const fetchData = async () => {
     try {
+      setError(null);
       const [ordersRes, cartRes] = await Promise.all([
         fetch('/api/bookings'),
         fetch('/api/cart'),
       ]);
 
-      if (ordersRes.ok) {
+      if (!ordersRes.ok) {
+        const errorData = await ordersRes.json();
+        console.error('Orders API error:', errorData);
+      } else {
         const ordersData = await ordersRes.json();
         setOrders(ordersData);
       }
 
-      if (cartRes.ok) {
+      if (!cartRes.ok) {
+        const errorData = await cartRes.json();
+        console.error('Cart API error:', errorData);
+      } else {
         const cartData = await cartRes.json();
         setCartItems(cartData);
       }
       setLastUpdated(new Date());
     } catch (error) {
       console.error('Error fetching data:', error);
+      setError('Failed to load dashboard data. Please try again.');
     } finally {
       setLoading(false);
     }
@@ -96,10 +118,15 @@ export default function Dashboard() {
               Dashboard
             </motion.h1>
             <div className="flex items-center space-x-4">
+              {/* Real-time connection indicator */}
+              <div className="flex items-center space-x-2">
+                <div className={`w-2 h-2 rounded-full ${isConnected ? 'bg-green-500 animate-pulse' : 'bg-red-500'}`}></div>
+                <span className="text-xs text-pink-600">{isConnected ? 'Live' : 'Offline'}</span>
+              </div>
               <motion.span
                 initial={{ y: -20, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
-                className="text-gray-700 font-medium"
+                className="text-pink-700 font-medium"
               >
                 Welcome, {session.user?.name}!
               </motion.span>
@@ -110,6 +137,23 @@ export default function Dashboard() {
 
       {/* Main Content */}
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        {/* Error Message */}
+        {error && (
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded-lg mb-6"
+          >
+            <p>{error}</p>
+            <button
+              onClick={fetchData}
+              className="text-red-700 underline hover:text-red-900 ml-2"
+            >
+              Try again
+            </button>
+          </motion.div>
+        )}
+
         {/* Welcome Section */}
         <motion.div
           initial={{ y: 50, opacity: 0 }}
@@ -117,13 +161,13 @@ export default function Dashboard() {
           transition={{ duration: 0.8 }}
           className="text-center mb-12"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-pink-800 mb-4">
             Your Wedding Card Hub
           </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          <p className="text-xl text-pink-600 max-w-2xl mx-auto">
             Manage your orders, customize cards, and create unforgettable memories
           </p>
-          <p className="text-sm text-gray-500 mt-2">
+          <p className="text-sm text-pink-500 mt-2">
             Last updated: {lastUpdated.toLocaleTimeString()}
           </p>
         </motion.div>
@@ -188,8 +232,8 @@ export default function Dashboard() {
           >
             <div className="text-center">
               <div className="text-6xl mb-4">💒</div>
-              <h3 className="text-xl font-semibold text-gray-800 mb-2">Browse Cards</h3>
-              <p className="text-gray-600 mb-4">
+              <h3 className="text-xl font-semibold text-pink-800 mb-2">Browse Cards</h3>
+              <p className="text-pink-600 mb-4">
                 Explore our stunning collection of wedding card designs
               </p>
               <Link
@@ -207,12 +251,12 @@ export default function Dashboard() {
           >
             <div className="text-center">
               <div className="text-6xl mb-4">📋</div>
-              <h3 className="text-xl font-semibold text-gray-800 mb-2">My Orders</h3>
-              <p className="text-gray-600 mb-4">
+              <h3 className="text-xl font-semibold text-pink-800 mb-2">My Orders</h3>
+              <p className="text-pink-600 mb-4">
                 Track and manage your card orders and downloads
               </p>
               <Link
-                href="/orders"
+                href="/dashboard"
                 className="inline-block bg-gradient-to-r from-rose-500 to-pink-500 text-white px-6 py-3 rounded-full font-semibold hover:from-rose-600 hover:to-pink-600 transition-all shadow-md hover:shadow-lg"
               >
                 View Orders
@@ -226,8 +270,8 @@ export default function Dashboard() {
           >
             <div className="text-center">
               <div className="text-6xl mb-4">🛒</div>
-              <h3 className="text-xl font-semibold text-gray-800 mb-2">Shopping Cart</h3>
-              <p className="text-gray-600 mb-4">
+              <h3 className="text-xl font-semibold text-pink-800 mb-2">Shopping Cart</h3>
+              <p className="text-pink-600 mb-4">
                 Review items in your cart and proceed to checkout
               </p>
               <Link
@@ -245,12 +289,12 @@ export default function Dashboard() {
           >
             <div className="text-center">
               <div className="text-6xl mb-4">🎨</div>
-              <h3 className="text-xl font-semibold text-gray-800 mb-2">Customize</h3>
-              <p className="text-gray-600 mb-4">
+              <h3 className="text-xl font-semibold text-pink-800 mb-2">Customize</h3>
+              <p className="text-pink-600 mb-4">
                 Start customizing your perfect wedding card
               </p>
               <Link
-                href="/cards"
+                href="/templates"
                 className="inline-block bg-gradient-to-r from-rose-500 to-pink-500 text-white px-6 py-3 rounded-full font-semibold hover:from-rose-600 hover:to-pink-600 transition-all shadow-md hover:shadow-lg"
               >
                 Get Started
@@ -267,7 +311,7 @@ export default function Dashboard() {
             transition={{ duration: 0.8, delay: 0.6 }}
             className="mt-12 bg-white rounded-xl shadow-lg p-8"
           >
-            <h3 className="text-2xl font-bold text-gray-800 mb-6">Recent Orders</h3>
+            <h3 className="text-2xl font-bold text-pink-800 mb-6">Recent Orders</h3>
             <div className="space-y-4">
               {orders.slice(0, 3).map((order, index) => (
                 <motion.div
@@ -275,11 +319,11 @@ export default function Dashboard() {
                   initial={{ x: -50, opacity: 0 }}
                   animate={{ x: 0, opacity: 1 }}
                   transition={{ delay: index * 0.1 }}
-                  className="flex items-center justify-between p-4 bg-gray-50 rounded-lg"
+                  className="flex items-center justify-between p-4 bg-pink-50 rounded-lg"
                 >
                   <div>
-                    <p className="font-semibold text-gray-800">Order #{order.orderId || order._id.slice(-8)}</p>
-                    <p className="text-gray-600 text-sm">
+                    <p className="font-semibold text-pink-800">Order #{order.orderId || order._id.slice(-8)}</p>
+                    <p className="text-pink-600 text-sm">
                       {new Date(order.createdAt).toLocaleDateString()}
                     </p>
                   </div>
@@ -299,16 +343,28 @@ export default function Dashboard() {
                 </motion.div>
               ))}
             </div>
-            {orders.length > 3 && (
-              <div className="text-center mt-6">
-                <Link
-                  href="/orders"
-                  className="text-rose-500 hover:text-rose-600 font-semibold"
-                >
-                  View All Orders →
-                </Link>
-              </div>
-            )}
+          </motion.div>
+        )}
+
+        {/* Empty State */}
+        {orders.length === 0 && !error && (
+          <motion.div
+            initial={{ y: 50, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+            className="mt-12 bg-white rounded-xl shadow-lg p-8 text-center"
+          >
+            <div className="text-6xl mb-4">📝</div>
+            <h3 className="text-2xl font-bold text-pink-800 mb-4">No Orders Yet</h3>
+            <p className="text-pink-600 mb-6">
+              You haven&apos;t placed any orders yet. Start by browsing our wedding card templates!
+            </p>
+            <Link
+              href="/templates"
+              className="inline-block bg-gradient-to-r from-rose-500 to-pink-500 text-white px-6 py-3 rounded-full font-semibold hover:from-rose-600 hover:to-pink-600 transition-all shadow-md hover:shadow-lg"
+            >
+              Browse Templates
+            </Link>
           </motion.div>
         )}
       </main>

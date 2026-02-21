@@ -227,7 +227,7 @@ export default function CheckoutPage() {
     return (
       <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-rose-50 to-pink-100">
         <div className="text-center">
-          <h2 className="text-2xl font-bold text-gray-800 mb-4">Booking Not Found</h2>
+          <h2 className="text-2xl font-bold text-pink-800 mb-4">Booking Not Found</h2>
           <Link
             href="/cards"
             className="bg-rose-500 text-white px-6 py-3 rounded-lg hover:bg-rose-600"
@@ -244,8 +244,8 @@ export default function CheckoutPage() {
       <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-green-50 to-emerald-100">
         <div className="text-center">
           <CheckCircle size={64} className="text-green-600 mx-auto mb-4" />
-          <h2 className="text-2xl font-bold text-gray-800 mb-4">Already Paid</h2>
-          <p className="text-gray-600 mb-6">This booking has already been paid for.</p>
+          <h2 className="text-2xl font-bold text-pink-800 mb-4">Already Paid</h2>
+          <p className="text-pink-600 mb-6">This booking has already been paid for.</p>
           <Link
             href={`/confirmation/${booking._id}`}
             className="bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700"
@@ -286,46 +286,46 @@ export default function CheckoutPage() {
             animate={{ opacity: 1, x: 0 }}
             className="bg-white rounded-2xl shadow-xl p-8"
           >
-            <h2 className="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+            <h2 className="text-2xl font-bold text-pink-800 mb-6 flex items-center">
               <CreditCard className="mr-3 text-indigo-600" size={24} />
               Order Summary
             </h2>
 
             <div className="space-y-4">
-              <div className="flex justify-between items-center py-3 border-b border-gray-200">
+              <div className="flex justify-between items-center py-3 border-b border-pink-200">
                 <div>
-                  <h3 className="font-semibold text-gray-800">
+                  <h3 className="font-semibold text-pink-800">
                     {booking.aspirant.name}
                   </h3>
-                  <p className="text-sm text-gray-600">Card</p>
+                  <p className="text-sm text-pink-600">Card</p>
                 </div>
                 <div className="text-right">
                   <p className="font-bold text-lg text-indigo-600">₹{booking.price}</p>
-                  <p className="text-sm text-gray-500">Template: {card.name}</p>
+                  <p className="text-sm text-pink-500">Template: {card.name}</p>
                 </div>
               </div>
 
-              <div className="bg-gray-50 rounded-lg p-4">
+              <div className="bg-pink-50 rounded-lg p-4">
                 <div className="flex justify-between items-center">
-                  <span className="font-semibold text-gray-800">Total Amount</span>
+                  <span className="font-semibold text-pink-800">Total Amount</span>
                   <span className="text-2xl font-bold text-green-600">₹{booking.price}</span>
                 </div>
-                <p className="text-xs text-gray-500 mt-1">Inclusive of all taxes</p>
+                <p className="text-xs text-pink-500 mt-1">Inclusive of all taxes</p>
               </div>
             </div>
 
             {/* Order Details */}
             <div className="mt-6 space-y-3 text-sm">
               <div className="flex justify-between">
-                <span className="text-gray-600">Order ID:</span>
-                <span className="font-mono text-gray-800">{booking.orderId}</span>
+                <span className="text-pink-600">Order ID:</span>
+                <span className="font-mono text-pink-800">{booking.orderId}</span>
               </div>
               <div className="flex justify-between">
-                <span className="text-gray-600">Template:</span>
-                <span className="text-gray-800">{card.name}</span>
+                <span className="text-pink-600">Template:</span>
+                <span className="text-pink-800">{card.name}</span>
               </div>
               <div className="flex justify-between">
-                <span className="text-gray-600">Status:</span>
+                <span className="text-pink-600">Status:</span>
                 <span className="px-2 py-1 bg-yellow-100 text-yellow-800 rounded-full text-xs">
                   {booking.status}
                 </span>
@@ -339,7 +339,7 @@ export default function CheckoutPage() {
             animate={{ opacity: 1, x: 0 }}
             className="bg-white rounded-2xl shadow-xl p-8"
           >
-            <h2 className="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+            <h2 className="text-2xl font-bold text-pink-800 mb-6 flex items-center">
               <Shield className="mr-3 text-green-600" size={24} />
               Secure Payment
             </h2>
@@ -347,8 +347,8 @@ export default function CheckoutPage() {
             <div className="space-y-6">
               {/* Payment Methods */}
               <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg p-4">
-                <h3 className="font-semibold text-gray-800 mb-2">Accepted Payment Methods</h3>
-                <div className="flex items-center space-x-4 text-sm text-gray-600">
+                <h3 className="font-semibold text-pink-800 mb-2">Accepted Payment Methods</h3>
+                <div className="flex items-center space-x-4 text-sm text-pink-600">
                   <span>💳 Credit/Debit Cards</span>
                   <span>🏦 Net Banking</span>
                   <span>📱 UPI</span>
@@ -358,15 +358,15 @@ export default function CheckoutPage() {
 
               {/* Security Features */}
               <div className="space-y-3">
-                <div className="flex items-center space-x-3 text-sm text-gray-600">
+                <div className="flex items-center space-x-3 text-sm text-pink-600">
                   <Shield size={16} className="text-green-600" />
                   <span>SSL Encrypted Payment</span>
                 </div>
-                <div className="flex items-center space-x-3 text-sm text-gray-600">
+                <div className="flex items-center space-x-3 text-sm text-pink-600">
                   <CheckCircle size={16} className="text-green-600" />
                   <span>Secure Razorpay Gateway</span>
                 </div>
-                <div className="flex items-center space-x-3 text-sm text-gray-600">
+                <div className="flex items-center space-x-3 text-sm text-pink-600">
                   <CheckCircle size={16} className="text-green-600" />
                   <span>Instant Payment Confirmation</span>
                 </div>
@@ -396,7 +396,7 @@ export default function CheckoutPage() {
               </button>
 
               {/* Terms */}
-              <p className="text-xs text-gray-500 text-center">
+              <p className="text-xs text-pink-500 text-center">
                 By proceeding with payment, you agree to our terms and conditions.
                 All payments are processed securely through Razorpay.
               </p>
@@ -411,22 +411,22 @@ export default function CheckoutPage() {
           transition={{ delay: 0.3 }}
           className="mt-12 bg-white rounded-2xl shadow-xl p-8"
         >
-          <h3 className="text-2xl font-bold text-gray-800 mb-6 text-center">What You Get</h3>
+          <h3 className="text-2xl font-bold text-pink-800 mb-6 text-center">What You Get</h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div className="text-center">
               <div className="text-4xl mb-3">📄</div>
-              <h4 className="font-semibold text-gray-800 mb-2">High-Quality PDF</h4>
-              <p className="text-sm text-gray-600">Professional PDF card ready for printing</p>
+              <h4 className="font-semibold text-pink-800 mb-2">High-Quality PDF</h4>
+              <p className="text-sm text-pink-600">Professional PDF card ready for printing</p>
             </div>
             <div className="text-center">
               <div className="text-4xl mb-3">🌐</div>
-              <h4 className="font-semibold text-gray-800 mb-2">Shareable Link</h4>
-              <p className="text-sm text-gray-600">Public link to share your card online</p>
+              <h4 className="font-semibold text-pink-800 mb-2">Shareable Link</h4>
+              <p className="text-sm text-pink-600">Public link to share your card online</p>
             </div>
             <div className="text-center">
               <div className="text-4xl mb-3">🎨</div>
-              <h4 className="font-semibold text-gray-800 mb-2">Custom Design</h4>
-              <p className="text-sm text-gray-600">Beautifully designed card with your personal details</p>
+              <h4 className="font-semibold text-pink-800 mb-2">Custom Design</h4>
+              <p className="text-sm text-pink-600">Beautifully designed card with your personal details</p>
             </div>
           </div>
         </motion.div>

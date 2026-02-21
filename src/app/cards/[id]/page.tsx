@@ -81,8 +81,8 @@ export default function CardDetail() {
         <div className="bg-white rounded-xl shadow p-6 space-y-6">
 
           <div>
-            <h2 className="text-2xl font-bold text-gray-800 mb-2">{card.name}</h2>
-            <p className="text-gray-600">{card.description}</p>
+            <h2 className="text-2xl font-bold text-pink-800 mb-2">{card.name}</h2>
+            <p className="text-pink-600">{card.description}</p>
             <div className="flex items-center gap-2 mt-2">
               <span className="px-2 py-1 bg-indigo-100 text-indigo-800 rounded-full text-sm">
                 {card.category}
@@ -92,10 +92,10 @@ export default function CardDetail() {
 
           <div className="border-t pt-4">
             <div className="flex items-center justify-between mb-4">
-              <span className="text-lg font-semibold text-gray-800">Price:</span>
+              <span className="text-lg font-semibold text-pink-800">Price:</span>
               <span className="text-2xl font-bold text-indigo-600">₹{card.price}</span>
             </div>
-            <p className="text-sm text-gray-600">Price per card. Quantity can be selected during booking.</p>
+            <p className="text-sm text-pink-600">Price per card. Quantity can be selected during booking.</p>
           </div>
 
           {/* FEATURES */}

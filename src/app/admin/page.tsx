@@ -20,7 +20,8 @@ import {
   Clock,
   CheckCircle,
   AlertCircle,
-  Crown
+  Crown,
+  Store
 } from 'lucide-react';
 import {
   BarChart,
@@ -210,7 +211,7 @@ export default function AdminDashboard() {
     },
   ];
 
-  const quickActions = [
+const quickActions = [
     {
       title: 'Manage Cards',
       description: 'Add, update, or delete card designs',
@@ -243,6 +244,14 @@ export default function AdminDashboard() {
       color: 'bg-gradient-to-r from-blue-500 to-indigo-600',
       stats: `${stats.totalUsers} users`,
     },
+    {
+      title: 'Seller Management',
+      description: 'Manage sellers and approve requests',
+      icon: Store,
+      href: '/admin/sellers',
+      color: 'bg-gradient-to-r from-yellow-500 to-orange-600',
+      stats: 'View sellers',
+    },
   ];
 
   return (
@@ -263,7 +272,7 @@ export default function AdminDashboard() {
                 <h1 className="text-3xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
                   Admin Dashboard
                 </h1>
-                <p className="text-sm text-gray-600 flex items-center">
+                <p className="text-sm text-pink-600 flex items-center">
                   <Activity size={14} className="mr-1" />
                   Last updated: {lastUpdated.toLocaleTimeString()}
                 </p>
@@ -271,8 +280,8 @@ export default function AdminDashboard() {
             </div>
             <div className="flex items-center space-x-4">
               <div className="text-right">
-                <p className="text-sm text-gray-600">Welcome back,</p>
-                <p className="font-semibold text-gray-900">{session.user?.name}</p>
+                <p className="text-sm text-pink-600">Welcome back,</p>
+                <p className="font-semibold text-pink-900">{session.user?.name}</p>
               </div>
               <motion.button
                 whileHover={{ scale: 1.05 }}
@@ -305,7 +314,7 @@ export default function AdminDashboard() {
             >
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-sm font-medium text-gray-600 mb-1">{stat.title}</p>
+                  <p className="text-sm font-medium text-pink-600 mb-1">{stat.title}</p>
                   <p className={`text-3xl font-bold ${stat.textColor}`}>{stat.value}</p>
                 </div>
                 <div className={`p-3 rounded-xl bg-gradient-to-r ${stat.color} shadow-lg`}>
@@ -324,7 +333,7 @@ export default function AdminDashboard() {
             animate={{ opacity: 1, x: 0 }}
             className="lg:col-span-2"
           >
-            <h2 className="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+            <h2 className="text-2xl font-bold text-pink-800 mb-6 flex items-center">
               <BarChart3 className="mr-3 text-indigo-600" size={28} />
               Quick Actions
             </h2>
@@ -342,12 +351,12 @@ export default function AdminDashboard() {
                     <div className={`p-3 rounded-xl ${action.color} shadow-lg`}>
                       <action.icon className="text-white" size={24} />
                     </div>
-                    <span className="text-sm font-medium text-gray-500 bg-gray-100 px-2 py-1 rounded-full">
+                    <span className="text-sm font-medium text-pink-500 bg-pink-100 px-2 py-1 rounded-full">
                       {action.stats}
                     </span>
                   </div>
-                  <h3 className="text-xl font-bold text-gray-800 mb-2">{action.title}</h3>
-                  <p className="text-gray-600 mb-4">{action.description}</p>
+                  <h3 className="text-xl font-bold text-pink-800 mb-2">{action.title}</h3>
+                  <p className="text-pink-600 mb-4">{action.description}</p>
                   <Link
                     href={action.href}
                     className="inline-flex items-center text-indigo-600 hover:text-indigo-700 font-semibold"
@@ -364,7 +373,7 @@ export default function AdminDashboard() {
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
           >
-            <h2 className="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+            <h2 className="text-2xl font-bold text-pink-800 mb-6 flex items-center">
               <Activity className="mr-3 text-green-600" size={28} />
               Recent Bookings
             </h2>
@@ -377,13 +386,13 @@ export default function AdminDashboard() {
                       initial={{ opacity: 0, x: 20 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: index * 0.1 }}
-                      className="flex items-center justify-between p-4 bg-gradient-to-r from-gray-50 to-white rounded-xl border border-gray-100"
+                      className="flex items-center justify-between p-4 bg-gradient-to-r from-gray-50 to-white rounded-xl border border-pink-100"
                     >
                       <div className="flex-1">
-                        <p className="font-semibold text-gray-800 text-sm">
+                        <p className="font-semibold text-pink-800 text-sm">
                           {booking.groom.fullName} & {booking.bride.fullName}
                         </p>
-                        <p className="text-xs text-gray-500">
+                        <p className="text-xs text-pink-500">
                           {new Date(booking.createdAt).toLocaleDateString()}
                         </p>
                       </div>
@@ -403,14 +412,14 @@ export default function AdminDashboard() {
                   ))
                 ) : (
                   <div className="text-center py-8">
-                    <Heart className="mx-auto text-gray-400 mb-2" size={32} />
-                    <p className="text-gray-500">No recent bookings</p>
+                    <Heart className="mx-auto text-pink-400 mb-2" size={32} />
+                    <p className="text-pink-500">No recent bookings</p>
                   </div>
                 )}
               </div>
 
               {recentBookings.length > 0 && (
-                <div className="mt-4 pt-4 border-t border-gray-200">
+                <div className="mt-4 pt-4 border-t border-pink-200">
                   <Link
                     href="/admin/bookings"
                     className="text-indigo-600 hover:text-indigo-700 font-semibold text-sm flex items-center"
@@ -432,7 +441,7 @@ export default function AdminDashboard() {
         >
           {/* Bookings Over Time */}
           <div className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl border border-white/20 p-6">
-            <h3 className="text-xl font-bold text-gray-800 mb-6 flex items-center">
+            <h3 className="text-xl font-bold text-pink-800 mb-6 flex items-center">
               <TrendingUp className="mr-3 text-blue-600" size={24} />
               Bookings Over Time
             </h3>
@@ -449,7 +458,7 @@ export default function AdminDashboard() {
 
           {/* Revenue Over Time */}
           <div className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl border border-white/20 p-6">
-            <h3 className="text-xl font-bold text-gray-800 mb-6 flex items-center">
+            <h3 className="text-xl font-bold text-pink-800 mb-6 flex items-center">
               <DollarSign className="mr-3 text-green-600" size={24} />
               Revenue Over Time
             </h3>
@@ -466,7 +475,7 @@ export default function AdminDashboard() {
 
           {/* Payment Status Distribution */}
           <div className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl border border-white/20 p-6">
-            <h3 className="text-xl font-bold text-gray-800 mb-6 flex items-center">
+            <h3 className="text-xl font-bold text-pink-800 mb-6 flex items-center">
               <CreditCard className="mr-3 text-purple-600" size={24} />
               Payment Status Distribution
             </h3>
@@ -493,7 +502,7 @@ export default function AdminDashboard() {
 
           {/* Weekly Bookings */}
           <div className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl border border-white/20 p-6">
-            <h3 className="text-xl font-bold text-gray-800 mb-6 flex items-center">
+            <h3 className="text-xl font-bold text-pink-800 mb-6 flex items-center">
               <Calendar className="mr-3 text-indigo-600" size={24} />
               Weekly Bookings
             </h3>
@@ -516,7 +525,7 @@ export default function AdminDashboard() {
           transition={{ delay: 0.8 }}
           className="mt-8 bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl border border-white/20 p-6"
         >
-          <h2 className="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+          <h2 className="text-2xl font-bold text-pink-800 mb-6 flex items-center">
             <CheckCircle className="mr-3 text-green-600" size={28} />
             System Status
           </h2>
@@ -524,22 +533,22 @@ export default function AdminDashboard() {
             <div className="flex items-center space-x-3">
               <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
               <div>
-                <p className="font-semibold text-gray-800">Database</p>
-                <p className="text-sm text-gray-600">Connected & Healthy</p>
+                <p className="font-semibold text-pink-800">Database</p>
+                <p className="text-sm text-pink-600">Connected & Healthy</p>
               </div>
             </div>
             <div className="flex items-center space-x-3">
               <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
               <div>
-                <p className="font-semibold text-gray-800">Payment Gateway</p>
-                <p className="text-sm text-gray-600">Razorpay Active</p>
+                <p className="font-semibold text-pink-800">Payment Gateway</p>
+                <p className="text-sm text-pink-600">Razorpay Active</p>
               </div>
             </div>
             <div className="flex items-center space-x-3">
               <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
               <div>
-                <p className="font-semibold text-gray-800">Real-time Updates</p>
-                <p className="text-sm text-gray-600">Live (Server-Sent Events)</p>
+                <p className="font-semibold text-pink-800">Real-time Updates</p>
+                <p className="text-sm text-pink-600">Live (Server-Sent Events)</p>
               </div>
             </div>
           </div>

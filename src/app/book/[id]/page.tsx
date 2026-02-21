@@ -238,7 +238,7 @@ export default function CardBookingForm() {
       <div className="min-h-screen bg-gradient-to-br from-pink-50 to-purple-50 flex items-center justify-center">
         <div className="text-center">
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-indigo-600 mx-auto"></div>
-          <p className="mt-4 text-gray-600">Loading...</p>
+          <p className="mt-4 text-pink-600">Loading...</p>
         </div>
       </div>
     );
@@ -254,8 +254,8 @@ export default function CardBookingForm() {
               <ArrowLeft className="w-5 h-5 mr-2" />
               Back to Cards
             </Link>
-            <h1 className="text-4xl font-bold text-gray-800 mb-2">Card Booking</h1>
-            <p className="text-gray-600">Book your custom card</p>
+            <h1 className="text-4xl font-bold text-pink-800 mb-2">Card Booking</h1>
+            <p className="text-pink-600">Book your custom card</p>
           </div>
 
           {/* Booking Form */}
@@ -264,15 +264,15 @@ export default function CardBookingForm() {
             animate={{ opacity: 1, y: 0 }}
             className="bg-white rounded-2xl shadow-xl p-8"
           >
-            <h2 className="text-2xl font-bold text-gray-800 mb-6">Booking Details</h2>
+            <h2 className="text-2xl font-bold text-pink-800 mb-6">Booking Details</h2>
 
             <div className="space-y-8">
                 {/* Aspirant Details */}
-                <div className="bg-gray-50 p-6 rounded-lg">
-                  <h3 className="text-lg font-semibold text-gray-800 mb-4">Aspirant Details</h3>
+                <div className="bg-pink-50 p-6 rounded-lg">
+                  <h3 className="text-lg font-semibold text-pink-800 mb-4">Aspirant Details</h3>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                      <label className="block text-sm font-medium text-pink-700 mb-2">
                         Name
                       </label>
                       <input
@@ -281,11 +281,11 @@ export default function CardBookingForm() {
                         value={bookingDetails.aspirant.name}
                         onChange={handleInputChange}
                         placeholder="Enter aspirant's name"
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                        className="w-full px-4 py-3 border border-pink-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
                       />
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                      <label className="block text-sm font-medium text-pink-700 mb-2">
                         Relation
                       </label>
                       <input
@@ -294,11 +294,11 @@ export default function CardBookingForm() {
                         value={bookingDetails.aspirant.relation}
                         onChange={handleInputChange}
                         placeholder="e.g., Son, Daughter"
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                        className="w-full px-4 py-3 border border-pink-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
                       />
                     </div>
                     <div className="md:col-span-2">
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                      <label className="block text-sm font-medium text-pink-700 mb-2">
                         Contact Number
                       </label>
                       <input
@@ -307,18 +307,18 @@ export default function CardBookingForm() {
                         value={bookingDetails.aspirant.contactNumber}
                         onChange={handleInputChange}
                         placeholder="+91 9876543210"
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                        className="w-full px-4 py-3 border border-pink-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
                       />
                     </div>
                   </div>
                 </div>
 
                 {/* Groom Details */}
-                <div className="bg-gray-50 p-6 rounded-lg">
-                  <h3 className="text-lg font-semibold text-gray-800 mb-4">Groom Details</h3>
+                <div className="bg-pink-50 p-6 rounded-lg">
+                  <h3 className="text-lg font-semibold text-pink-800 mb-4">Groom Details</h3>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                      <label className="block text-sm font-medium text-pink-700 mb-2">
                         Full Name
                       </label>
                       <input
@@ -327,11 +327,11 @@ export default function CardBookingForm() {
                         value={bookingDetails.groom.fullName}
                         onChange={handleInputChange}
                         placeholder="Enter groom's full name"
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                        className="w-full px-4 py-3 border border-pink-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
                       />
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                      <label className="block text-sm font-medium text-pink-700 mb-2">
                         Father's Name
                       </label>
                       <input
@@ -340,11 +340,11 @@ export default function CardBookingForm() {
                         value={bookingDetails.groom.fatherName}
                         onChange={handleInputChange}
                         placeholder="Enter father's name"
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                        className="w-full px-4 py-3 border border-pink-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
                       />
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                      <label className="block text-sm font-medium text-pink-700 mb-2">
                         Mother's Name
                       </label>
                       <input
@@ -353,11 +353,11 @@ export default function CardBookingForm() {
                         value={bookingDetails.groom.motherName}
                         onChange={handleInputChange}
                         placeholder="Enter mother's name"
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                        className="w-full px-4 py-3 border border-pink-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
                       />
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                      <label className="block text-sm font-medium text-pink-700 mb-2">
                         Photo URL (Optional)
                       </label>
                       <input
@@ -366,18 +366,18 @@ export default function CardBookingForm() {
                         value={bookingDetails.groom.photoUrl}
                         onChange={handleInputChange}
                         placeholder="https://example.com/photo.jpg"
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                        className="w-full px-4 py-3 border border-pink-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
                       />
                     </div>
                   </div>
                 </div>
 
                 {/* Bride Details */}
-                <div className="bg-gray-50 p-6 rounded-lg">
-                  <h3 className="text-lg font-semibold text-gray-800 mb-4">Bride Details</h3>
+                <div className="bg-pink-50 p-6 rounded-lg">
+                  <h3 className="text-lg font-semibold text-pink-800 mb-4">Bride Details</h3>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                      <label className="block text-sm font-medium text-pink-700 mb-2">
                         Full Name
                       </label>
                       <input
@@ -386,11 +386,11 @@ export default function CardBookingForm() {
                         value={bookingDetails.bride.fullName}
                         onChange={handleInputChange}
                         placeholder="Enter bride's full name"
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                        className="w-full px-4 py-3 border border-pink-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
                       />
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                      <label className="block text-sm font-medium text-pink-700 mb-2">
                         Father's Name
                       </label>
                       <input
@@ -399,11 +399,11 @@ export default function CardBookingForm() {
                         value={bookingDetails.bride.fatherName}
                         onChange={handleInputChange}
                         placeholder="Enter father's name"
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                        className="w-full px-4 py-3 border border-pink-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
                       />
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                      <label className="block text-sm font-medium text-pink-700 mb-2">
                         Mother's Name
                       </label>
                       <input
@@ -412,11 +412,11 @@ export default function CardBookingForm() {
                         value={bookingDetails.bride.motherName}
                         onChange={handleInputChange}
                         placeholder="Enter mother's name"
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                        className="w-full px-4 py-3 border border-pink-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
                       />
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                      <label className="block text-sm font-medium text-pink-700 mb-2">
                         Photo URL (Optional)
                       </label>
                       <input
@@ -425,18 +425,18 @@ export default function CardBookingForm() {
                         value={bookingDetails.bride.photoUrl}
                         onChange={handleInputChange}
                         placeholder="https://example.com/photo.jpg"
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                        className="w-full px-4 py-3 border border-pink-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
                       />
                     </div>
                   </div>
                 </div>
 
                 {/* Wedding Details */}
-                <div className="bg-gray-50 p-6 rounded-lg">
-                  <h3 className="text-lg font-semibold text-gray-800 mb-4">Wedding Details</h3>
+                <div className="bg-pink-50 p-6 rounded-lg">
+                  <h3 className="text-lg font-semibold text-pink-800 mb-4">Wedding Details</h3>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                      <label className="block text-sm font-medium text-pink-700 mb-2">
                         Wedding Date
                       </label>
                       <input
@@ -444,11 +444,11 @@ export default function CardBookingForm() {
                         name="wedding.date"
                         value={bookingDetails.wedding.date}
                         onChange={handleInputChange}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                        className="w-full px-4 py-3 border border-pink-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
                       />
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                      <label className="block text-sm font-medium text-pink-700 mb-2">
                         Wedding Time
                       </label>
                       <input
@@ -456,11 +456,11 @@ export default function CardBookingForm() {
                         name="wedding.time"
                         value={bookingDetails.wedding.time}
                         onChange={handleInputChange}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                        className="w-full px-4 py-3 border border-pink-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
                       />
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                      <label className="block text-sm font-medium text-pink-700 mb-2">
                         Venue Name
                       </label>
                       <input
@@ -469,11 +469,11 @@ export default function CardBookingForm() {
                         value={bookingDetails.wedding.venueName}
                         onChange={handleInputChange}
                         placeholder="Enter venue name"
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                        className="w-full px-4 py-3 border border-pink-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
                       />
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                      <label className="block text-sm font-medium text-pink-700 mb-2">
                         City
                       </label>
                       <input
@@ -482,11 +482,11 @@ export default function CardBookingForm() {
                         value={bookingDetails.wedding.city}
                         onChange={handleInputChange}
                         placeholder="Enter city"
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                        className="w-full px-4 py-3 border border-pink-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
                       />
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                      <label className="block text-sm font-medium text-pink-700 mb-2">
                         State
                       </label>
                       <input
@@ -495,11 +495,11 @@ export default function CardBookingForm() {
                         value={bookingDetails.wedding.state}
                         onChange={handleInputChange}
                         placeholder="Enter state"
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                        className="w-full px-4 py-3 border border-pink-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
                       />
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                      <label className="block text-sm font-medium text-pink-700 mb-2">
                         Google Map Link (Optional)
                       </label>
                       <input
@@ -508,11 +508,11 @@ export default function CardBookingForm() {
                         value={bookingDetails.wedding.googleMapLink}
                         onChange={handleInputChange}
                         placeholder="https://maps.google.com/..."
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                        className="w-full px-4 py-3 border border-pink-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
                       />
                     </div>
                     <div className="md:col-span-2">
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                      <label className="block text-sm font-medium text-pink-700 mb-2">
                         Full Address
                       </label>
                       <textarea
@@ -521,20 +521,20 @@ export default function CardBookingForm() {
                         onChange={handleInputChange}
                         placeholder="Enter complete address"
                         rows={2}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                        className="w-full px-4 py-3 border border-pink-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
                       />
                     </div>
                   </div>
                 </div>
 
                 {/* Events */}
-                <div className="bg-gray-50 p-6 rounded-lg">
-                  <h3 className="text-lg font-semibold text-gray-800 mb-4">Wedding Events</h3>
+                <div className="bg-pink-50 p-6 rounded-lg">
+                  <h3 className="text-lg font-semibold text-pink-800 mb-4">Wedding Events</h3>
                   {(bookingDetails.events || []).map((event, index) => (
                     <div key={index} className="mb-4 p-4 border rounded-lg">
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div>
-                          <label className="block text-sm font-medium text-gray-700 mb-2">
+                          <label className="block text-sm font-medium text-pink-700 mb-2">
                             Event Name
                           </label>
                           <input
@@ -543,11 +543,11 @@ export default function CardBookingForm() {
                             value={event.eventName}
                             onChange={handleInputChange}
                             placeholder="e.g., Wedding Ceremony"
-                            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                            className="w-full px-4 py-3 border border-pink-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
                           />
                         </div>
                         <div>
-                          <label className="block text-sm font-medium text-gray-700 mb-2">
+                          <label className="block text-sm font-medium text-pink-700 mb-2">
                             Event Date
                           </label>
                           <input
@@ -555,11 +555,11 @@ export default function CardBookingForm() {
                             name={`events.${index}.eventDate`}
                             value={event.eventDate}
                             onChange={handleInputChange}
-                            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                            className="w-full px-4 py-3 border border-pink-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
                           />
                         </div>
                         <div>
-                          <label className="block text-sm font-medium text-gray-700 mb-2">
+                          <label className="block text-sm font-medium text-pink-700 mb-2">
                             Event Time
                           </label>
                           <input
@@ -567,11 +567,11 @@ export default function CardBookingForm() {
                             name={`events.${index}.eventTime`}
                             value={event.eventTime}
                             onChange={handleInputChange}
-                            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                            className="w-full px-4 py-3 border border-pink-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
                           />
                         </div>
                         <div>
-                          <label className="block text-sm font-medium text-gray-700 mb-2">
+                          <label className="block text-sm font-medium text-pink-700 mb-2">
                             Event Venue
                           </label>
                           <input
@@ -580,7 +580,7 @@ export default function CardBookingForm() {
                             value={event.eventVenue}
                             onChange={handleInputChange}
                             placeholder="Enter event venue"
-                            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                            className="w-full px-4 py-3 border border-pink-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
                           />
                         </div>
                       </div>
@@ -589,11 +589,11 @@ export default function CardBookingForm() {
                 </div>
 
                 {/* Messages */}
-                <div className="bg-gray-50 p-6 rounded-lg">
-                  <h3 className="text-lg font-semibold text-gray-800 mb-4">Messages</h3>
+                <div className="bg-pink-50 p-6 rounded-lg">
+                  <h3 className="text-lg font-semibold text-pink-800 mb-4">Messages</h3>
                   <div className="space-y-4">
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                      <label className="block text-sm font-medium text-pink-700 mb-2">
                         Family Invitation
                       </label>
                       <textarea
@@ -602,11 +602,11 @@ export default function CardBookingForm() {
                         onChange={handleInputChange}
                         placeholder="Enter family invitation message"
                         rows={3}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                        className="w-full px-4 py-3 border border-pink-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
                       />
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                      <label className="block text-sm font-medium text-pink-700 mb-2">
                         Religious Quote
                       </label>
                       <textarea
@@ -615,11 +615,11 @@ export default function CardBookingForm() {
                         onChange={handleInputChange}
                         placeholder="Enter religious quote"
                         rows={3}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                        className="w-full px-4 py-3 border border-pink-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
                       />
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                      <label className="block text-sm font-medium text-pink-700 mb-2">
                         Special Message
                       </label>
                       <textarea
@@ -628,25 +628,25 @@ export default function CardBookingForm() {
                         onChange={handleInputChange}
                         placeholder="Enter special message"
                         rows={3}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                        className="w-full px-4 py-3 border border-pink-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
                       />
                     </div>
                   </div>
                 </div>
 
                 {/* Theme */}
-                <div className="bg-gray-50 p-6 rounded-lg">
-                  <h3 className="text-lg font-semibold text-gray-800 mb-4">Theme Settings</h3>
+                <div className="bg-pink-50 p-6 rounded-lg">
+                  <h3 className="text-lg font-semibold text-pink-800 mb-4">Theme Settings</h3>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                      <label className="block text-sm font-medium text-pink-700 mb-2">
                         Card Theme
                       </label>
                       <select
                         name="theme.cardTheme"
                         value={bookingDetails.theme.cardTheme}
                         onChange={handleInputChange}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                        className="w-full px-4 py-3 border border-pink-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
                       >
                         <option value="Royal">Royal</option>
                         <option value="Traditional">Traditional</option>
@@ -655,14 +655,14 @@ export default function CardBookingForm() {
                       </select>
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                      <label className="block text-sm font-medium text-pink-700 mb-2">
                         Language
                       </label>
                       <select
                         name="theme.language"
                         value={bookingDetails.theme.language}
                         onChange={handleInputChange}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                        className="w-full px-4 py-3 border border-pink-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
                       >
                         <option value="Hindi">Hindi</option>
                         <option value="English">English</option>
@@ -670,7 +670,7 @@ export default function CardBookingForm() {
                       </select>
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                      <label className="block text-sm font-medium text-pink-700 mb-2">
                         Color Theme
                       </label>
                       <input
@@ -678,11 +678,11 @@ export default function CardBookingForm() {
                         name="theme.colorTheme"
                         value={bookingDetails.theme.colorTheme}
                         onChange={handleInputChange}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                        className="w-full px-4 py-3 border border-pink-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
                       />
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                      <label className="block text-sm font-medium text-pink-700 mb-2">
                         Background Music URL (Optional)
                       </label>
                       <input
@@ -691,18 +691,18 @@ export default function CardBookingForm() {
                         value={bookingDetails.theme.backgroundMusic}
                         onChange={handleInputChange}
                         placeholder="https://example.com/music.mp3"
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                        className="w-full px-4 py-3 border border-pink-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
                       />
                     </div>
                   </div>
                 </div>
 
                 {/* Recipient Details */}
-                <div className="bg-gray-50 p-6 rounded-lg">
-                  <h3 className="text-lg font-semibold text-gray-800 mb-4">Recipient Details</h3>
+                <div className="bg-pink-50 p-6 rounded-lg">
+                  <h3 className="text-lg font-semibold text-pink-800 mb-4">Recipient Details</h3>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                      <label className="block text-sm font-medium text-pink-700 mb-2">
                         Recipient Name
                       </label>
                       <input
@@ -711,11 +711,11 @@ export default function CardBookingForm() {
                         value={bookingDetails.recipientName}
                         onChange={handleInputChange}
                         placeholder="Enter recipient's full name"
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                        className="w-full px-4 py-3 border border-pink-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
                       />
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                      <label className="block text-sm font-medium text-pink-700 mb-2">
                         Recipient Email
                       </label>
                       <input
@@ -724,11 +724,11 @@ export default function CardBookingForm() {
                         value={bookingDetails.recipientEmail}
                         onChange={handleInputChange}
                         placeholder="recipient@example.com"
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                        className="w-full px-4 py-3 border border-pink-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
                       />
                     </div>
                     <div className="md:col-span-2">
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                      <label className="block text-sm font-medium text-pink-700 mb-2">
                         Recipient Phone
                       </label>
                       <input
@@ -737,18 +737,18 @@ export default function CardBookingForm() {
                         value={bookingDetails.recipientPhone}
                         onChange={handleInputChange}
                         placeholder="+91 9876543210"
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                        className="w-full px-4 py-3 border border-pink-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
                       />
                     </div>
                   </div>
                 </div>
 
                 {/* Quantity & Delivery */}
-                <div className="bg-gray-50 p-6 rounded-lg">
-                  <h3 className="text-lg font-semibold text-gray-800 mb-4">Delivery Details</h3>
+                <div className="bg-pink-50 p-6 rounded-lg">
+                  <h3 className="text-lg font-semibold text-pink-800 mb-4">Delivery Details</h3>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                      <label className="block text-sm font-medium text-pink-700 mb-2">
                         Quantity
                       </label>
                       <input
@@ -757,11 +757,11 @@ export default function CardBookingForm() {
                         min="1"
                         value={bookingDetails.quantity}
                         onChange={(e) => setBookingDetails(prev => ({ ...prev, quantity: parseInt(e.target.value) || 1 }))}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                        className="w-full px-4 py-3 border border-pink-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
                       />
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                      <label className="block text-sm font-medium text-pink-700 mb-2">
                         Delivery Date
                       </label>
                       <input
@@ -770,18 +770,18 @@ export default function CardBookingForm() {
                         value={bookingDetails.deliveryDate}
                         onChange={handleInputChange}
                         min={new Date().toISOString().split('T')[0]}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                        className="w-full px-4 py-3 border border-pink-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
                       />
                     </div>
                   </div>
                 </div>
 
                 {/* Additional Messages */}
-                <div className="bg-gray-50 p-6 rounded-lg">
-                  <h3 className="text-lg font-semibold text-gray-800 mb-4">Additional Messages</h3>
+                <div className="bg-pink-50 p-6 rounded-lg">
+                  <h3 className="text-lg font-semibold text-pink-800 mb-4">Additional Messages</h3>
                   <div className="space-y-4">
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                      <label className="block text-sm font-medium text-pink-700 mb-2">
                         Personal Message (Optional)
                       </label>
                       <textarea
@@ -790,11 +790,11 @@ export default function CardBookingForm() {
                         onChange={handleInputChange}
                         placeholder="Write a personal message for the card..."
                         rows={3}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                        className="w-full px-4 py-3 border border-pink-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
                       />
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                      <label className="block text-sm font-medium text-pink-700 mb-2">
                         Special Instructions (Optional)
                       </label>
                       <textarea
@@ -803,19 +803,19 @@ export default function CardBookingForm() {
                         onChange={handleInputChange}
                         placeholder="Any special delivery instructions..."
                         rows={2}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                        className="w-full px-4 py-3 border border-pink-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
                       />
                     </div>
                   </div>
                 </div>
 
                 {/* Total Price */}
-                <div className="bg-gray-50 p-4 rounded-lg">
+                <div className="bg-pink-50 p-4 rounded-lg">
                   <div className="flex justify-between items-center">
-                    <span className="text-lg font-semibold text-gray-800">Total Price:</span>
+                    <span className="text-lg font-semibold text-pink-800">Total Price:</span>
                     <span className="text-2xl font-bold text-indigo-600">₹{totalPrice}</span>
                   </div>
-                  <p className="text-sm text-gray-600 mt-1">
+                  <p className="text-sm text-pink-600 mt-1">
                     {bookingDetails.quantity} × ₹{card?.price || 0} per card
                   </p>
                 </div>
