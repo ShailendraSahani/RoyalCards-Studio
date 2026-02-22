@@ -30,7 +30,11 @@ export default withAuth(
 
         // Require admin role for admin routes
         if (pathname.startsWith('/admin')) {
-          return token?.role === 'admin';
+          // Check if token exists and has admin role
+          if (!token) {
+            return false;
+          }
+          return token.role === 'admin';
         }
 
         return true;

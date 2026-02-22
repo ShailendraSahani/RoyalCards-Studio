@@ -45,20 +45,43 @@ export default function SignIn() {
       return;
     }
 
-    const res = await signIn('credentials', {
-      mobile,
-      password,
-      redirect: false,
-    });
+    try {
+      // Add timeout to prevent infinite hanging
+      const timeoutPromise = new Promise((_, reject) => 
+        setTimeout(() => reject(new Error('Request timeout')), 15000)
+      );
 
-    if (res?.error) {
-      setError('Invalid mobile or password');
+      const signInPromise = signIn('credentials', {
+        mobile,
+        password,
+        redirect: false,
+      });
+
+      const res = await Promise.race([signInPromise, timeoutPromise]) as any;
+
+      if (res?.error) {
+        setError('Invalid mobile or password');
+        setLoading(false);
+        return;
+      }
+
+      // Wait a bit for session to update
+      await new Promise(resolve => setTimeout(resolve, 500));
+      
+      // Force refresh the session
+      const session = await getSession();
+      
+      if (session?.user?.role === 'admin') {
+        router.push('/admin');
+      } else {
+        router.push('/');
+      }
+      router.refresh();
+    } catch (err: any) {
+      console.error('Login error:', err);
+      setError(err.message === 'Request timeout' ? 'Server timeout. Please try again.' : 'Login failed. Please try again.');
       setLoading(false);
-      return;
     }
-
-    const session = await getSession();
-    router.push(session?.user?.role === 'admin' ? '/admin' : '/');
   };
 
   return (

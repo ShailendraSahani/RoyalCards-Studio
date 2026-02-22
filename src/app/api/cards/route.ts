@@ -23,7 +23,12 @@ export async function GET(request: NextRequest) {
     // Return real data from database (no fallback)
     const cards = await CardDesign.find(query).sort({ createdAt: -1 }).lean();
     
-    return NextResponse.json(cards);
+    // Add caching for better performance - cache for 5 minutes for public users
+    return NextResponse.json(cards, {
+      headers: {
+        'Cache-Control': 'public, s-maxage=300, stale-while-revalidate=600',
+      },
+    });
   } catch (error) {
     console.error('Error fetching cards:', error);
     return NextResponse.json({ message: 'Internal server error' }, { status: 500 });

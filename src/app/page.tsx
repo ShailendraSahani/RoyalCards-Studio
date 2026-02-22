@@ -68,8 +68,7 @@ export default function HomePage() {
 
   useEffect(() => {
     fetchData();
-    const interval = setInterval(fetchData, 30000);
-    return () => clearInterval(interval);
+    // Removed polling - real-time updates will come via useRealtime hook if needed
   }, []);
 
   return (

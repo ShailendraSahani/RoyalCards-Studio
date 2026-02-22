@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { connectToDatabase } from '@/lib/mongodb';
+import { dbConnect } from '@/lib/mongodb';
+import { connect } from 'mongoose';
 
 export async function POST(request: NextRequest) {
   try {
@@ -23,7 +24,7 @@ export async function POST(request: NextRequest) {
     }
 
     // Connect to database
-    const client = await connectToDatabase();
+    const client = await dbConnect();
     const db = client.db();
 
     // Save contact message
